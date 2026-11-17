@@ -1,0 +1,4 @@
+# Fichiers temporaires
+*.tmp
+.DS_Store
+Thumbs.db
