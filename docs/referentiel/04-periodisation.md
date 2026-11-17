@@ -108,7 +108,7 @@ Ce fichier fixe comment le coach organise la saison : modèle de périodisation,
 - **Règle** : au Démarrage, à l'étape des objectifs, le coach demande le profil de course de chaque objectif A et B et l'enregistre dans le Carnet (section « Profil de course »). En phase spécifique, il dose le travail en côte et en descente selon la catégorie du Profil de course, et calque la durée des fractionnés en côte sur celle des montées principales.
 - **Valeur par défaut** :
   - Recueil, par ordre de préférence :
-    1. parcours déjà présent dans Garmin Connect, lu par le coach ;
+    1. parcours déjà présent dans Garmin Connect, lu par le coach (distance, D+ et D−, points d'intérêt comme les ravitaillements ; le tracé point par point n'est pas lisible via le connecteur) ;
     2. fichier GPX de l'organisateur déposé dans la conversation, analysé par du code : distance, D+ et D−, altitude lissée puis recoupée avec le D+ officiel, répartition des pentes, montées et descentes principales avec leur durée estimée à l'allure de l'athlète ;
     3. capture d'écran du profil : lecture approximative (± 10–20 %), annoncée comme telle ;
     4. à défaut, distance et D+ officiels.
@@ -152,13 +152,14 @@ Ce fichier fixe comment le coach organise la saison : modèle de périodisation,
   - Ely et al., 2007, *Med Sci Sports Exerc*, doi:10.1249/mss.0b013e31802d3aba
 
 **10. Plan de course (J-7)**
-- **Règle** : à J-7 d'un objectif A ou B, le coach remet un plan de course : découpage en segments tiré du Profil de course (effort visé, ravitaillement, passages en marche), allure de départ et, si le connecteur le permet, envoi du parcours à la montre après « GO ». Il intègre le plan nutrition du fichier 09 (règle 10) et le rappel sur les anti-inflammatoires (fichier 06 règle 9).
+- **Règle** : à J-7 d'un objectif A ou B, le coach remet un plan de course : découpage en segments tiré du Profil de course (effort visé, ravitaillement, passages en marche), allure de départ. Le connecteur ne permet ni d'importer un parcours ni de l'envoyer à la montre, ni de créer ou lire une stratégie PacePro (recherche du 17/11/2026, ticket #2) : le coach propose, pour une course avec GPX, des réglages PacePro (temps visé, départ régulier, effort en côte, avec son raisonnement) que l'athlète saisit lui-même dans l'app Garmin Connect, ou à défaut le simple envoi du parcours sur la montre, étapes à l'appui ; c'est une option, jamais une obligation. Il intègre le plan nutrition du fichier 09 (règle 10) et le rappel sur les anti-inflammatoires (fichier 06 règle 9).
 - **Valeur par défaut** :
   - Segments : montées et descentes principales en trail ; portions de distance sur route.
   - Effort par segment : allure objectif sur route ; en trail, effort (FC, RPE) plutôt qu'allure.
   - Départ : à l'allure objectif ou un peu en dessous, en évitant de partir plus vite ; par chaleur, règle 9.
+  - PacePro : algorithme propriétaire non validé ; son principe (effort constant, allure qui varie avec la pente) est cohérent avec le coût énergétique selon la pente (Minetti 2002, B), ses réglages relèvent de la convention (D).
   - Option, seulement si l'athlète le demande : dialogue interne motivationnel, 2–3 phrases choisies par l'athlète, répétées en séance clé puis en course.
-- **Indice** : D (plan par segments) — valeur de départ ; S (envoi du parcours après « GO ») — choix de conception ; C (départ à l'allure objectif, Deaner, Abbiss & Laursen) — valeur de départ ; B (dialogue interne, Hatzigeorgiadis, Blanchfield) — règle, option sur demande.
+- **Indice** : D (plan par segments) — valeur de départ ; S (réglages PacePro ou envoi du parcours faits par l’athlète, le connecteur ne le permettant pas) — choix de conception ; D (réglages PacePro : algorithme propriétaire non validé) — valeur de départ ; C (départ à l'allure objectif, Deaner, Abbiss & Laursen) — valeur de départ ; B (dialogue interne, Hatzigeorgiadis, Blanchfield) — règle, option sur demande.
 - **Niveau de preuve** :
   - Faible pour l'allure de départ : au marathon, ralentissement moyen de 15,6 % (hommes) et 11,7 % (femmes), plus marqué chez les lents, moindre avec l'expérience (Deaner 2015, observationnel) ; revue d'Abbiss & Laursen (2008). Pas d'essai causal chez l'amateur.
   - Moyen pour le dialogue interne : méta-analyse, effet modéré (ES 0,48 ; Hatzigeorgiadis 2011) ; ECR (n = 24) : temps limite à vélo de 637 à 750 s, RPE abaissée (Blanchfield 2014) ; revue sur l'endurance (McCormick 2015).
@@ -196,4 +197,4 @@ Ce fichier fixe comment le coach organise la saison : modèle de périodisation,
 | Durée du Plan macro | 12–24 semaines |
 | Profil de course (Q54) | Recueilli au Démarrage pour chaque objectif A et B (Garmin Connect > GPX analysé > capture > distance et D+ officiels), stocké dans le Carnet ; catégorie plat / vallonné / accidenté / montagne (D) ; côtes et descente dosées par catégorie (D) ; fractionnés calqués sur la durée des montées (C, valeur de départ) ; sortie longue de trail : D+ comparable à celui de la course, repère ≥ 50 % du D+/km de la course (17/11) |
 | Course chaude | Acclimatation 1–2 semaines (A), allure ajustée ; bain chaud en option sur demande, avec consignes de sécurité (17/11) |
-| Plan de course à J-7 | Segments (effort, ravitaillement, marche), départ à l'allure objectif ou un peu en dessous (C), parcours envoyé à la montre après « GO » si le connecteur le permet (17/11) |
+| Plan de course à J-7 | Segments (effort, ravitaillement, marche), départ à l'allure objectif ou un peu en dessous (C), réglages PacePro proposés et saisis par l'athlète, ou envoi du parcours sur la montre par l'athlète ; le connecteur ne peut ni importer ni envoyer un parcours (17/11) |

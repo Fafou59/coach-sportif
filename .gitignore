@@ -2,3 +2,9 @@
 *.tmp
 .DS_Store
 Thumbs.db
+
+# Build du skill (scripts/build_skill.py)
+dist/
+
+# Worktrees des agents
+.claude/

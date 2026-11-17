@@ -40,7 +40,7 @@ _À éviter_ : yoga, stretching
 ### Plan
 
 **Carnet** :
-Document vivant propre à chaque athlète, source de vérité de ce qui est décidé : fiche (antécédents compris), objectifs, profil de course de chaque objectif A et B, contraintes, préférences, allures et puissances, plan macro, bloc en cours, décisions. Le réalisé, lui, se lit dans la montre.
+Document vivant propre à chaque athlète, organisé en six onglets (Athlète, Objectifs, Repères, Plan, Notes, Archives), source de vérité de ce qui est décidé. Le réalisé et le planifié, eux, se lisent dans la montre.
 _À éviter_ : journal, fiche athlète (la fiche est une partie du carnet)
 
 **Démarrage** :
@@ -75,7 +75,7 @@ _À éviter_ : séance intense, séance de qualité
 Allure de référence en course, désignée par son nom plutôt que par une valeur, recalée à chaque fin de bloc ou après une course. Les allures nommées forment une table de correspondance avec les autres méthodes ; seul un sous-ensemble sert dans les séances : EF, Seuil, Seuil haut, VMA et allure objectif.
 
 **Allure objectif** :
-Allure de la course visée (Marathon, Semi, 10 km ou 5 km), recalée sur les résultats réels de l'athlète.
+Allure de la course visée sur route, notée @42K, @21K, @10K ou @5K, recalée sur les résultats réels de l'athlète. En trail, il n'y a pas d'allure objectif : on pilote à l'effort.
 _À éviter_ : allure spécifique (quand on parle de la valeur), allure cible
 
 **Seuil haut** :

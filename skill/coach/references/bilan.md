@@ -1,0 +1,141 @@
+# Bilan du dimanche, fin de bloc, course
+
+Le bilan du dimanche est un rendez-vous en **deux temps** : d'abord la synthèse chiffrée et les questions, **sans adaptation** ; puis, après les réponses, l'adaptation et la création de la semaine suivante dans Garmin. L'athlète doit pouvoir donner son ressenti avant que tu ne conclues.
+
+Sommaire : Temps 1 · Temps 2 · Fin de bloc · Course A ou B à J-7 · Bilan de course · Exemples.
+
+## Temps 1 : synthèse et questions
+
+1. Outils Garmin disponibles ? Sinon : connexion-garmin.md ou mode dégradé.
+2. Carnet : tous les onglets sauf Archives.
+3. Garmin, semaine du lundi au dimanche :
+   - `get_scheduled_workouts` (prévu) et `get_activities_by_date` (fait) ;
+   - `get_activity` pour chaque activité : effort perçu (/10) → charge = RPE × durée en minutes, tous sports ;
+   - `get_activities_by_date` sur 30 jours, course seulement : plus longue sortie (plafond 1,10 × de la semaine suivante) ;
+   - temps en bande Facile (Z1 + Z2 de `get_activity_hr_in_timezones`) pour les séances de course et de vélo ; si c'est trop coûteux, omets-le.
+4. **Plage personnelle** : `get_sleep_summary_range` sur les 30 dernières nuits (un seul appel ; `get_hrv_trend` sur 30 jours si la VFC y manque). Pour la VFC, la FC de repos et la durée de sommeil : ligne de base = moyenne sur 28–30 j, SWC = 0,5 × écart-type, plage = ligne de base ± SWC. Compare la moyenne des 7 derniers jours. Mets à jour l'onglet Repères (référentiel 08, règles 1, 4 et 9).
+5. Calcule les **indicateurs**, commentés mais jamais décisifs seuls : hausse du volume de course (repères 10 / 15 / 20 % selon le niveau), cumul sur 2 semaines (garde-fou de 30 %), hausse de la charge RPE totale, part de la sortie longue, répartition en bande Facile (≈ 80/20, jusqu'à 70/30 sous 5 h/semaine). Compare avec le suivi hebdomadaire de l'onglet Plan.
+6. Message format B : tableau prévu / fait, points saillants (séances clés, indicateurs, récupération, notes de l'athlète), puis les questions. **Aucune adaptation à ce stade.**
+
+**Questions** (réponse en une ligne, puis texte libre facultatif) :
+1. Forme 1–5
+2. Jambes, courbatures 1–5
+3. Stress hors sport 1–5
+4. Motivation 1–5
+5. Douleur : non, ou où et combien sur 10
+6. Contraintes de la semaine à venir
+
+Exemple de réponse : `Forme 4 · Jambes 3 · Stress 2 · Motiv 5 · Douleur non · Indispo mardi`.
+Seulement sur signal (durée de sommeil hors plage, ou forme ≤ 2) : sommeil ressenti. Jamais : l'effort perçu manquant.
+
+## Temps 2 : adaptation et semaine suivante
+
+1. **Douleur** : feu tricolore d'abord (référentiel 06, règle 4). **Dérive** : grille du référentiel 08 (règle 6). Forme, jambes, stress et motivation pèsent avec les données ; un indicateur seul ne déclenche rien.
+2. Dis clairement si une adaptation est nécessaire ou non, et pourquoi.
+3. **Séance à la carte**, si l'athlète y a droit (référentiel 01, règle 8 : intermédiaire ou confirmé, ≈ 3 h 30/semaine et au moins 4 séances, après 4 semaines avec une séance dure bien tolérée) : **recommande une option d'après les réponses du temps 1**. Dérive en cours : Aucune ou Légère seulement. Intermédiaire dont la sortie longue contient de l'allure spécifique : Aucune ou Légère. Jamais d'endurance de vitesse en à la carte. L'athlète choisit avant le GO ; seule l'option retenue est créée.
+4. Construis la semaine à partir du bloc détaillé (onglet Plan) et des contraintes annoncées, puis vérifie :
+
+   | Garde-fou | Référentiel |
+   |---|---|
+   | Budget de séances dures (course + vélo) selon le niveau | 01, règle 3 |
+   | 48 h entre deux séances dures (24 h tolérées : confirmé, 2e au Seuil, aucune dérive) | 01, règle 4 |
+   | Pas de renfo lourd ni de pliométrie dans les 24 h avant une séance dure | 07, règle 6 |
+   | Chaque sortie de course ≤ 1,10 × la plus longue des 30 derniers jours | 03, règle 1 |
+   | Cumul de hausse du volume ≤ 30 % sur 2 semaines | 03, règle 2 |
+   | Une seule hausse forte par semaine | 03, règle 6 |
+   | Plafond de durée de la sortie longue | 05, règle 3 |
+   | Rappel glucides dans la description au-delà de 75 min | 09, règles 1 et 10 |
+
+5. Message format B : adaptation, tableau de la semaine **jusqu'au lundi d'après** (séances déjà créées exclues), séance principale ★, option à la carte ; et le tableau des séances de la semaine écoulée à retirer de la bibliothèque. Une seule question : GO pour les deux listes.
+6. Après GO : création, planification, relecture, confirmation (garmin.md) ; suppression des séances passées (`delete_workouts`, aperçu puis confirmation).
+7. Carnet : onglet Plan (statut des séances, ligne du suivi hebdomadaire, journal des décisions), onglet Repères (plage) déjà à jour.
+
+## Fin de bloc
+
+Au bilan qui clôt la semaine d'allègement, en plus du temps 2 :
+1. **Recalage des allures, sans plafond** (référentiel 02, règle 10), sur la meilleure donnée du bloc : course > test > vitesse critique recalculée sur 3 efforts quasi maximaux de 3 à 20 min > séances au seuil. Annonce le degré de confiance. Même chose pour la FTP et la LTHR (bandes FC) ; si la LTHR change, propose de mettre à jour les zones Z1–Z5 du compte (après GO, garmin.md).
+2. Après 2–3 blocs sans course ni test : propose un test (référentiel 02, règle 4), placé en semaine d'allègement.
+3. **Bloc suivant** : 3 + 1 par défaut, 2 + 1 sur critère observé (récupération lente, imprévu, débutant qui récupère lentement ; l'âge seul n'est pas un critère) ; une qualité principale et une d'entretien ; détaillé séance par séance et **validé** par l'athlète (référentiel 04, règle 3). Revois la préférence de dosage des côtes (référentiel 04, règle 8).
+4. **Archive** : déplace le détail du bloc terminé et son journal de Plan vers Archives.
+5. Propose un **export Markdown** du carnet (sauvegarde).
+
+## Course A ou B à J-7
+
+Au bilan ou au check qui tombe à J-7, remets un **plan de course** (référentiel 04, règle 10) :
+- segments tirés du profil de course (onglet Objectifs) : effort visé, ravitaillement, passages en marche ; en trail, effort plutôt qu'allure ;
+- départ à l'allure objectif ou un peu en dessous ; par temps chaud, allure ajustée (04, règle 9) ;
+- course avec GPX : réglages PacePro proposés, avec leur raisonnement, que l'athlète saisit lui-même, ou à défaut l'envoi du parcours sur la montre par l'athlète (option) ;
+- nutrition en 4 points : charge si besoin, repas d'avant-course, ravitaillement par heure, hydratation et sodium (09, règle 10) ;
+- course de plus de 90 min : « Évite ibuprofène, aspirine ou antidouleur pour tenir, avant comme pendant la course, sauf avis de ton médecin. » (06, règle 9) ;
+- renfo : dernier lourd à J-7/J-10, activation légère jusqu'à J-4, rien après (07, règle 7).
+
+## Bilan de course
+
+Après une course objectif :
+1. Lis l'activité (`get_activity`, découpage) et le profil de course.
+2. Questions : ressenti, ce qui a marché, ce qui n'a pas marché, douleur.
+3. **Reprise** : tableau du référentiel 06 (règle 1) selon la distance et le dénivelé ; haut des fourchettes pour un débutant ou sur critère observé. Fixe la date de retour de l'intensité. Séances de reprise créées après GO.
+4. Le résultat devient la meilleure donnée de recalage (02, règle 10), appliquée au retour de l'intensité, pas avant.
+5. Carnet : résultat dans Objectifs, bloc terminé vers Archives.
+6. Relance le démarrage **à l'étape 2** (objectifs) : demarrage.md.
+
+## Exemples (format B, données fictives)
+
+**Temps 1**
+
+> ### Bilan — semaine 3 du bloc 2 (charge)
+> | | Prévu | Fait |
+> |---|---|---|
+> | Séances | 5 | 5 |
+> | Course | 40 km | 42 km |
+> | Total | 5 h 55 | 6 h 05 |
+>
+> **Points saillants :** séance clé Seuil haut réussie · bande Facile 81 % · récupération dans ta plage · volume course +6 %.
+>
+> **Verdict :** semaine conforme, pas d'adaptation pour l'instant.
+>
+> > **À toi :** Réponds en une ligne : Forme 1–5 · Jambes 1–5 · Stress 1–5 · Motiv 1–5 · Douleur (non, ou où et /10) · Contraintes de la semaine.
+
+**Temps 2**
+
+> ### Adaptation
+> **Aucune nécessaire** : jambes 2/5 en fin de bloc de charge, attendu. Semaine 4 = allègement (−35 %).
+> ### Semaine du 24/11
+> | Jour | Séance |
+> |---|---|
+> | Mar | — (indispo) |
+> | Mer | `R \| EF 40' + 6×15" LD` |
+> | Jeu | `R \| Frac. 45' 4×4' @Seuil r:2' ★` |
+> | Ven | `Renfo \| 30'` |
+> | Dim | `R \| SL 1h10` |
+> | Lun 1/12 | `R \| EF 40'` |
+>
+> À la carte : je recommande **Aucune** (jambes 2/5, allègement).
+> ### À retirer de la bibliothèque
+> 5 séances de la semaine du 17/11 (tes activités restent).
+>
+> > **À toi :** GO pour créer ces 5 séances et retirer les 5 anciennes ?
+
+**Fin de bloc**
+
+> ### Fin du bloc 2 : recalage
+> | Allure | Avant | Après | Source |
+> |---|---|---|---|
+> | Seuil | 4'38 | 4'32 | 10 km du 16/11 |
+> | Seuil haut | 4'18 | 4'12 | 10 km du 16/11 |
+>
+> **Verdict :** progression nette, confiance élevée (course récente). Bloc 3 en 3 + 1, qualité principale : Seuil haut.
+>
+> > **À toi :** Tu valides le bloc 3 tel que détaillé dans ton carnet ?
+
+**Bilan de course**
+
+> ### Semi de Lille : 1 h 39'52
+> | Segment | Allure | Cible |
+> |---|---|---|
+> | 0–10 km | 4'42 | 4'45 |
+> | 10–21 km | 4'45 | 4'45 |
+>
+> **Verdict :** course maîtrisée, départ bien tenu. Reprise : EF dès jeudi, intensité à partir du 2/12.
+>
+> > **À toi :** Ton ressenti, ce qui a marché, ce qui a coincé ?

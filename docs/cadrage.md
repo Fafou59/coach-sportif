@@ -2,6 +2,8 @@
 
 Récapitulatif de l'interview des 14, 16 et 17/11/2026 (Q1 à Q64), **validé par l'utilisateur le 17/11/2026**, après intégration des suites de la relecture du même jour (`referentiel/relecture-2026-11-17.md`). Vocabulaire : [CONTEXT.md](../CONTEXT.md). Décisions structurantes : [docs/adr/](adr/). Règles d'entraînement détaillées et sourcées : [docs/referentiel/](referentiel/).
 
+Les décisions prises après Q64 (Q65–Q88 : architecture du kit, carnet, conventions Garmin, messages, questions) vivent dans les tickets fermés de la [carte de wayfinding](https://github.com/Fafou59/coach-sportif/issues/1) ; ce cadrage en reprend l'essentiel.
+
 ## 1. Produit et contraintes
 - Coach d'endurance pour un cercle privé (toi et ta copine d'abord), **gratuit sur Claude Free**, installable par un proche sans compétence technique.
 - Problèmes à résoudre en priorité (Q1) : plans fiables sur le plan sportif, continuité entre les conversations, suivi qui ne dépend pas de relances.
@@ -14,9 +16,9 @@ Récapitulatif de l'interview des 14, 16 et 17/11/2026 (Q1 à Q64), **validé pa
 - **Pas de proactivité en Free** : le suivi quotidien est un **check** lancé par l'athlète (Q7, ADR 0001).
 - **Carnet** = un Claude Doc par athlète, source de vérité de ce qui est décidé ; Garmin fait foi pour le planifié et le réalisé ; la mémoire Claude n'est qu'un complément (Q9, ADR 0002).
 - **Méthode en skills**, communs à tous ; le projet de chaque athlète ne contient qu'une instruction courte pointant vers son carnet, en précisant que le carnet est un Claude Doc et non un fichier Drive (Q10, T2, ADR 0003).
-- Découpage (Q22) : `coach` (socle, aiguillage, lecture du carnet), `coach-demarrage`, `coach-check`, `coach-bilan`, `coach-garmin`, et le référentiel en fichiers annexes.
+- Découpage : **un seul skill `coach`** (ADR 0004, révise Q22) : `SKILL.md` porte l'aiguillage, les règles transverses et l'index ; procédures (démarrage, check, bilan, Garmin) et référentiel en fichiers annexes lus à la demande. Les anciens skills du compte sont désactivés pendant la répétition à blanc.
 - Économie de quota (Q11, Q24) : étapes courtes sauvegardées dans le carnet ; lecture Garmin par synthèses et plages courtes ; base personnelle de récupération recalculée le dimanche et stockée dans le carnet.
-- Carnet (Q23) : fiche (antécédents compris), objectifs et verdicts, **profil de course** de chaque objectif A et B (distance, D+/D−, D+/km, catégorie, montées et descentes principales ; Q54), contraintes et préférences, allures et puissances, base de référence santé, plan macro, bloc en cours, journal des décisions, notes de l'athlète (seule section où il écrit, avec contraintes).
+- Carnet (Q23, précisé Q80–Q84) : Claude Doc à **6 onglets** — Athlète (fiche, antécédents, consentements, contraintes et préférences), Objectifs (objectifs et verdicts, profil de course de chaque objectif A et B), Repères (allures et puissances avec source et confiance, bandes FC, plage personnelle de récupération), Plan (plan macro, bloc en cours, journal des décisions du bloc), Notes (écrites par l'athlète), Archives (blocs terminés). Le coach ne relit que les onglets utiles à la situation ; il crée le carnet à la 1re étape du démarrage et le remplit étape par étape ; l'athlète colle le lien dans l'instruction de projet ; aucun identifiant Garmin n'y est stocké ; export Markdown proposé à chaque fin de bloc.
 - Distribution (Q18) : dépôt GitHub public ; version indiquée dans la description de chaque skill.
 
 ## 3. Parcours de l'athlète
