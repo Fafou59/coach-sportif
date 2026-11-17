@@ -1,0 +1,188 @@
+<!doctype html>
+<!--
+  PROTOTYPE JETABLE — ticket « À quoi ressemblent un check et un bilan sur téléphone ? » (#8).
+  Question : quelle forme donner aux messages du coach sur un téléphone ?
+  Trois variantes structurellement différentes (A télégraphique, B fiche structurée, C conversation),
+  7 situations, bascule par ?variant=A|B|C et ?situation=..., flèches ← → ou barre du bas.
+  Données fictives. Ne pas réutiliser ce code tel quel.
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototype messages du coach</title>
+<style>
+  :root { --bg:#f4f1ea; --card:#fff; --ink:#1f1d1a; --muted:#6b665d; --accent:#c4622d; --line:#e2ddd3; --user:#ece6da; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#d9d4ca; font:15px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); }
+  .phone { width:390px; max-width:100%; min-height:100vh; margin:0 auto; background:var(--bg); display:flex; flex-direction:column; }
+  .top { position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--line); padding:10px 12px 8px; z-index:2; }
+  .top h1 { font-size:13px; margin:0 0 6px; color:var(--muted); font-weight:600; }
+  .tabs { display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; }
+  .tabs button { flex:none; border:1px solid var(--line); background:var(--card); border-radius:14px; padding:4px 10px; font-size:12px; cursor:pointer; color:var(--ink); }
+  .tabs button.on { background:var(--ink); color:#fff; border-color:var(--ink); }
+  .chat { padding:14px 12px 110px; display:flex; flex-direction:column; gap:12px; }
+  .user { align-self:flex-end; background:var(--user); border-radius:16px 16px 4px 16px; padding:8px 12px; max-width:80%; }
+  .coach { align-self:stretch; padding:2px 2px; }
+  .coach h3 { font-size:15px; margin:14px 0 4px; }
+  .coach h3:first-child { margin-top:0; }
+  .coach p { margin:6px 0; }
+  .coach ul, .coach ol { margin:6px 0; padding-left:20px; }
+  .coach li { margin:2px 0; }
+  .coach table { border-collapse:collapse; width:100%; font-size:13px; margin:8px 0; display:block; overflow-x:auto; }
+  .coach th, .coach td { border:1px solid var(--line); padding:4px 6px; text-align:left; white-space:nowrap; }
+  .coach th { background:#efe9de; }
+  .coach code { background:#efe9de; padding:1px 4px; border-radius:4px; font-size:12.5px; }
+  .tag { display:inline-block; font-size:11px; padding:1px 7px; border-radius:10px; background:#efe9de; color:var(--muted); margin-right:4px; }
+  .q { background:#fff7ef; border-left:3px solid var(--accent); padding:6px 10px; margin:8px 0; border-radius:0 8px 8px 0; }
+  .stats { font-size:12px; color:var(--muted); border-top:1px dashed var(--line); margin-top:10px; padding-top:6px; }
+  .bar { position:fixed; bottom:16px; left:50%; transform:translateX(-50%); background:#111; color:#fff; border-radius:24px; padding:6px 10px; display:flex; align-items:center; gap:10px; box-shadow:0 4px 14px rgba(0,0,0,.35); font-size:13px; z-index:5; }
+  .bar button { background:#333; color:#fff; border:0; border-radius:50%; width:30px; height:30px; cursor:pointer; font-size:15px; }
+  .bar .label { min-width:200px; text-align:center; }
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="top">
+    <h1 id="title">Prototype — messages du coach</h1>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="chat" id="chat"></div>
+</div>
+<div class="bar">
+  <button id="prev" aria-label="Variante précédente">←</button>
+  <div class="label" id="label"></div>
+  <button id="next" aria-label="Variante suivante">→</button>
+</div>
+
+<script>
+const SITUATIONS = [
+  { key:'ras',     nom:'Check RAS',          user:'check' },
+  { key:'cle',     nom:'Check séance clé',   user:'check' },
+  { key:'derive',  nom:'Check dérive',       user:'check' },
+  { key:'imprevu', nom:'Check imprévu',      user:'check : malade depuis hier, mal à la gorge, pas de fièvre' },
+  { key:'express', nom:'Bilan express',      user:'check' },
+  { key:'t1',      nom:'Bilan dimanche — temps 1', user:'bilan' },
+  { key:'t2',      nom:'Bilan dimanche — temps 2', user:'1. Bonne forme, jambes un peu lourdes jeudi\n2. Rien\n3. 7 h en moyenne\n4. Motivé\n5. Soutenue pour l\'à la carte, et je ne peux pas courir mardi' },
+];
+const VARIANTES = { A:'Télégraphique', B:'Fiche structurée', C:'Conversation' };
+
+const M = {
+A: {
+ras: `<p>✅ <b>RAS</b> — sommeil, VFC et FC de repos dans ta plage.</p><p>Demain : <code>R | EF 45'</code></p>`,
+cle: `<p>🎯 <b>Frac. Seuil haut — réussi</b></p>
+<ul><li>5 × 5' : 4'12 · 4'10 · 4'11 · 4'09 · 4'14 (cible 4'08–4'15)</li><li>FC fin de répét. : 166 → 171</li><li>Effort perçu : 8/10</li></ul>
+<p>⚠️ Dernière répét. un peu plus lente : normal en fin de bloc.</p>
+<div class="q">Comment vont les jambes ce matin ?</div>`,
+derive: `<p>🟠 <b>Récupération en dérive (3 j)</b></p>
+<ul><li>VFC 7 j : 52 ms (plage 56–68)</li><li>FC repos 7 j : 52 (plage 46–50)</li></ul>
+<p>Demain prévu : <code>R | Frac. 50' 6×3' @VMA</code></p>
+<div class="q">Je propose : EF 40' à la place. Tu valides ?<br>1. Oui · 2. Non, je garde · 3. Repos</div>`,
+imprevu: `<p>🤒 <b>Imprévu : maladie</b> — symptômes au-dessus du cou, pas de fièvre.</p>
+<ul><li>Aujourd'hui : repos ou marche</li><li>Demain : test 15' très facile si ça va mieux</li><li>Pas d'intensité avant 48 h sans symptômes</li></ul>
+<div class="q">Je décale le fractionné de jeudi à samedi dans Garmin ? (GO)</div>`,
+express: `<p>📅 <b>Pas de bilan dimanche — bilan express</b></p>
+<p>Semaine : 4/5 séances · 5 h 10 · RAS récup.</p>
+<div class="q">En 1 mot, ta forme ?</div>
+<p>Ensuite je crée mar → dim.</p>`,
+t1: `<p>📊 <b>Semaine 3 / bloc 2 (charge)</b></p>
+<ul><li>5/5 séances · 6 h 05 (sem. dernière 5 h 30)</li><li>Course 42 km · Vélo 1 h 50</li><li>Bande Facile : 81 %</li><li>Récup. : RAS</li></ul>
+<div class="q">1. Forme ? 2. Douleurs ? 3. Sommeil ? 4. Motivation ? 5. À la carte : quelle option ?</div>`,
+t2: `<p>✅ <b>Pas d'adaptation nécessaire</b> — jambes lourdes jeudi = fin de bloc, normal.</p>
+<p>Semaine 4 = allègement (−35 %).</p>
+<ul><li>Lun : repos</li><li>Mar : <s>EF</s> → déplacée mercredi</li><li>Mer : <code>R | EF 40' + 6×15" LD</code></li><li>Jeu : <code>R | Frac. 45' 4×4' @Seuil</code> (principale)</li><li>Ven : <code>Renfo | 30'</code></li><li>Sam : <code>V | SL 1h30</code></li><li>Dim : <code>R | SL 1h10</code></li></ul>
+<p>À la carte : Soutenue → <b>pas cette semaine</b> (allègement).</p>
+<div class="q">GO pour créer ces 6 séances ?</div>`
+},
+B: {
+ras: `<h3>Check du mardi 18/11</h3>
+<table><tr><th>Indicateur</th><th>7 j</th><th>Ta plage</th><th></th></tr>
+<tr><td>VFC</td><td>61 ms</td><td>56–68</td><td>✅</td></tr>
+<tr><td>FC repos</td><td>48</td><td>46–50</td><td>✅</td></tr>
+<tr><td>Sommeil</td><td>7 h 20</td><td>6 h 50–8 h</td><td>✅</td></tr></table>
+<p><b>Verdict :</b> RAS.</p><h3>Demain</h3><p><code>R | EF 45'</code> — bande Facile (FC &lt; 153).</p>`,
+cle: `<h3>Séance clé : Frac. Seuil haut</h3>
+<table><tr><th>Répét.</th><th>Allure</th><th>FC fin</th></tr>
+<tr><td>1</td><td>4'12</td><td>166</td></tr><tr><td>2</td><td>4'10</td><td>168</td></tr><tr><td>3</td><td>4'11</td><td>169</td></tr><tr><td>4</td><td>4'09</td><td>170</td></tr><tr><td>5</td><td>4'14</td><td>171</td></tr></table>
+<h3>Analyse</h3><ul><li><b>Allures :</b> dans la cible 4'08–4'15 ✅</li><li><b>Régularité :</b> bonne, légère baisse sur la 5e</li><li><b>Dérive FC :</b> +5 bpm, attendue</li><li><b>Effort perçu :</b> 8/10</li></ul>
+<h3>Verdict</h3><p>Séance réussie. Rien à changer.</p><div class="q">Comment vont les jambes ce matin ?</div>`,
+derive: `<h3>Alerte récupération</h3>
+<table><tr><th>Indicateur</th><th>7 j</th><th>Plage</th><th>Depuis</th></tr>
+<tr><td>VFC</td><td>52 ms</td><td>56–68</td><td>3 j 🟠</td></tr>
+<tr><td>FC repos</td><td>52</td><td>46–50</td><td>3 j 🟠</td></tr>
+<tr><td>Sommeil</td><td>6 h 40</td><td>6 h 50–8 h</td><td>2 j</td></tr></table>
+<h3>Ce que ça veut dire</h3><p>Deux signaux sur plusieurs jours : fatigue probable, pas d'alarme. <span class="tag">Indice D — convention</span></p>
+<h3>Proposition</h3><ul><li>Demain : <code>R | EF 40'</code> au lieu de <code>R | Frac. 50' 6×3' @VMA</code></li><li>Fractionné reporté à samedi si la récup. revient</li></ul>
+<div class="q">Tu valides ? (1. Oui · 2. Je garde le fractionné · 3. Repos)</div>`,
+imprevu: `<h3>Imprévu : maladie</h3>
+<p><b>Ce que tu décris :</b> gorge, pas de fièvre → symptômes au-dessus du cou.</p>
+<h3>Conduite (consensus CIO)</h3><ol><li>Aujourd'hui : repos ou marche</li><li>Si mieux : test de 15' très facile, puis surveillance 24 h</li><li>Pas d'intensité avant 48 h sans symptômes</li><li>Fièvre, douleur thoracique ou malaise → arrêt et médecin</li></ol>
+<h3>Impact sur la semaine</h3><table><tr><th>Jour</th><th>Prévu</th><th>Proposé</th></tr>
+<tr><td>Jeu</td><td>Frac. Seuil</td><td>EF 30' si test OK</td></tr><tr><td>Sam</td><td>V | SL 1h30</td><td>Frac. Seuil (si 48 h sans symptômes)</td></tr></table>
+<div class="q">GO pour ces modifications dans Garmin ?</div>`,
+express: `<h3>Bilan express (dimanche manqué)</h3>
+<table><tr><th>Séances</th><th>Volume</th><th>Récup.</th></tr><tr><td>4/5</td><td>5 h 10</td><td>RAS</td></tr></table>
+<div class="q">Une question : forme de 1 à 5 ?</div>
+<p>Puis je propose les séances de mercredi à dimanche.</p>`,
+t1: `<h3>Bilan — semaine 3 du bloc 2 (charge)</h3>
+<table><tr><th></th><th>Prévu</th><th>Fait</th></tr>
+<tr><td>Séances</td><td>5</td><td>5</td></tr><tr><td>Course</td><td>40 km</td><td>42 km</td></tr><tr><td>Vélo</td><td>1 h 45</td><td>1 h 50</td></tr><tr><td>Total</td><td>5 h 55</td><td>6 h 05</td></tr></table>
+<h3>Points saillants</h3><ul><li>Séance clé Seuil haut réussie</li><li>Bande Facile : 81 % du temps</li><li>Récupération : dans ta plage</li><li>Tendance 4 sem. : +8 % de volume</li></ul>
+<h3>Tes réponses (sans adaptation pour l'instant)</h3><div class="q">1. Forme et jambes ?<br>2. Douleurs ?<br>3. Sommeil ?<br>4. Motivation ?<br>5. À la carte la semaine prochaine : Aucune, Légère, Moyenne ou Soutenue ?</div>`,
+t2: `<h3>Adaptation</h3><p><b>Aucune nécessaire.</b> Jambes lourdes jeudi en fin de bloc de charge : attendu. Semaine 4 = allègement (−35 %).</p>
+<h3>Semaine du 24/11 à créer</h3>
+<table><tr><th>Jour</th><th>Séance</th></tr>
+<tr><td>Lun</td><td>Repos</td></tr><tr><td>Mar</td><td>— (indispo)</td></tr><tr><td>Mer</td><td><code>R | EF 40' + 6×15" LD</code></td></tr><tr><td>Jeu</td><td><code>R | Frac. 45' 4×4' @Seuil</code> ★</td></tr><tr><td>Ven</td><td><code>Renfo | 30'</code></td></tr><tr><td>Sam</td><td><code>V | SL 1h30</code></td></tr><tr><td>Dim</td><td><code>R | SL 1h10</code></td></tr><tr><td>Lun 1/12</td><td><code>R | EF 40'</code></td></tr></table>
+<p>★ séance principale · À la carte : non proposée en semaine d'allègement.</p>
+<div class="q">GO pour créer ces 6 séances dans Garmin ?</div>`
+},
+C: {
+ras: `<p>Tout va bien : ton sommeil, ta VFC et ta FC de repos sont dans ta plage habituelle. Rien à signaler.</p><p>Demain, footing facile de 45 minutes. Bonne journée !</p>`,
+cle: `<p>Belle séance hier ! Tes cinq répétitions au Seuil haut sont toutes dans la cible (entre 4'09 et 4'14), avec une FC qui monte doucement de 166 à 171, ce qui est normal sur ce format. Tu l'as notée 8/10 : c'est le bon niveau d'effort.</p>
+<p>La dernière est un peu plus lente, mais on est en fin de bloc de charge, rien d'inquiétant.</p>
+<p>Et toi, comment tu te sens ce matin, les jambes ?</p>`,
+derive: `<p>Je préfère te prévenir : depuis trois jours, ta VFC est plus basse que d'habitude (52 ms contre 56 à 68) et ta FC de repos plus haute (52 contre 46 à 50). Pris ensemble, ces deux signaux évoquent une fatigue, sans rien d'alarmant.</p>
+<p>Demain tu avais un fractionné VMA. Je te propose de le remplacer par 40 minutes faciles, et de le reprogrammer samedi si ça revient. C'est une convention de prudence, pas une règle prouvée : c'est toi qui décides.</p>
+<p>On remplace, tu gardes, ou tu préfères te reposer ?</p>`,
+imprevu: `<p>Désolé pour ta gorge ! Comme tes symptômes restent au-dessus du cou et que tu n'as pas de fièvre, pas besoin de tout arrêter : repos ou simple marche aujourd'hui.</p>
+<p>Si ça va mieux demain, fais un test de 15 minutes très facile et observe comment tu te sens dans les 24 heures. On évite l'intensité tant que tu n'as pas eu 48 heures sans symptômes. En cas de fièvre ou de malaise, on arrête et tu consultes.</p>
+<p>Concrètement, je te propose de remplacer le fractionné de jeudi par un footing de 30 minutes, et de le décaler à samedi. Je fais la modification dans Garmin ?</p>`,
+express: `<p>On n'a pas fait le bilan dimanche, pas de souci : faisons-le en version courte. Tu as fait 4 séances sur 5 (5 h 10) et ta récupération est bonne.</p><p>Juste une question : comment te sens-tu en ce moment ? Ensuite je te propose la fin de semaine.</p>`,
+t1: `<p>Voici ta semaine 3 du bloc 2, la dernière de charge avant l'allègement.</p>
+<p>Tu as fait les 5 séances prévues, pour 6 h 05 (42 km de course et 1 h 50 de vélo), un peu plus que prévu. La séance au Seuil haut s'est très bien passée, 81 % de ton temps était en bande Facile, et ta récupération est restée dans ta plage.</p>
+<p>Avant de préparer la semaine prochaine, j'ai besoin de ton ressenti :</p>
+<ol><li>Comment te sens-tu, et tes jambes ?</li><li>Une douleur quelque part ?</li><li>Comment dors-tu ?</li><li>Ta motivation ?</li><li>Pour la séance à la carte : aucune, légère, moyenne ou soutenue ?</li></ol>`,
+t2: `<p>Merci ! Les jambes lourdes jeudi sont normales en fin de bloc de charge, donc pas d'adaptation : on passe comme prévu à une semaine d'allègement, avec environ un tiers de volume en moins. Du coup, pas de séance à la carte cette semaine, même en Soutenue.</p>
+<p>Comme tu ne peux pas courir mardi, je décale le footing à mercredi. Voici ce que je créerais :</p>
+<ul><li>mercredi : 40 minutes faciles avec 6 lignes droites ;</li><li>jeudi : la séance principale, 4 × 4 minutes au Seuil ;</li><li>vendredi : renfo de 30 minutes ;</li><li>samedi : 1 h 30 de vélo facile ;</li><li>dimanche : sortie longue de 1 h 10 ;</li><li>lundi 1/12 : 40 minutes faciles.</li></ul>
+<p>Je les crée dans Garmin ?</p>`
+}
+};
+
+const params = new URLSearchParams(location.search);
+let variant = params.get('variant') in VARIANTES ? params.get('variant') : 'A';
+let situation = SITUATIONS.some(s => s.key === params.get('situation')) ? params.get('situation') : 'ras';
+
+function wordCount(html){ const t = html.replace(/<[^>]+>/g,' '); return t.split(/\s+/).filter(Boolean).length; }
+function render(){
+  const s = SITUATIONS.find(x => x.key === situation);
+  document.getElementById('tabs').innerHTML = SITUATIONS.map(x => `<button data-k="${x.key}" class="${x.key===situation?'on':''}">${x.nom}</button>`).join('');
+  const html = M[variant][situation];
+  document.getElementById('chat').innerHTML =
+    `<div class="user">${s.user.replace(/\n/g,'<br>')}</div><div class="coach">${html}<div class="stats">État : variante ${variant} (${VARIANTES[variant]}) · situation « ${s.nom} » · ${wordCount(html)} mots</div></div>`;
+  document.getElementById('label').textContent = `${variant} (${VARIANTES[variant]})`;
+  document.querySelectorAll('#tabs button').forEach(b => b.onclick = () => { situation = b.dataset.k; sync(); });
+}
+function sync(){ const p = new URLSearchParams({variant, situation}); try { history.replaceState(null,'','?'+p); } catch(e) { /* aperçu sans URL modifiable */ } render(); }
+function cycle(d){ const k = Object.keys(VARIANTES); variant = k[(k.indexOf(variant)+d+k.length)%k.length]; sync(); }
+document.getElementById('prev').onclick = () => cycle(-1);
+document.getElementById('next').onclick = () => cycle(1);
+document.addEventListener('keydown', e => {
+  if (e.target.closest('input,textarea,[contenteditable]')) return;
+  if (e.key === 'ArrowLeft') cycle(-1);
+  if (e.key === 'ArrowRight') cycle(1);
+});
+sync();
+</script>
+</body>
+</html>
