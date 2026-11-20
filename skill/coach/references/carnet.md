@@ -6,12 +6,14 @@ Sommaire : Ouvrir et modifier · Onglets à lire par situation · Qui écrit quo
 
 ## Ouvrir et modifier
 
-- Ouvre le carnet avec l'outil Claude Docs à partir du lien de l'instruction de projet. Jamais de recherche dans Google Drive, jamais de copie. Lien absent : demande-le.
+- Ouvre le carnet avec l'outil Claude Docs à partir du lien claude.ai de l'instruction de projet ; il ne se trouve jamais dans Google Drive.
+- Pas de lien, ou seulement un texte d'attente (« pas encore créé », texte entre chevrons) : pas encore de carnet ; au démarrage, crée-le (§ Création), sinon demande le lien. Lien valide : c'est **le** carnet, un seul par athlète, jamais de second ni de copie.
 - Liste d'abord les onglets, puis lis seulement ceux de la situation (tableau ci-dessous).
 - Modifie l'onglet ou le bloc concerné (une ligne de tableau, une section), jamais le Doc entier.
+- Le carnet s'écrit **sans GO ni autorisation**, y compris en MODE RÉPÉTITION (qui ne bloque que Garmin). Après chaque modification, dis en une ligne ce qui a changé et dans quel onglet.
+- Écris au moment de la décision, dans le message où elle est prise : un imprévu en particulier (SKILL.md, Imprévus ouverts) ne reste jamais seulement dans la conversation.
 - Tu ne supprimes rien : un bloc terminé se **déplace** vers Archives.
 - Aucun identifiant Garmin (ID de séance, ID d'activité) dans le carnet : relis-les dans Garmin au besoin.
-- Après chaque modification, dis en une ligne ce qui a changé et dans quel onglet.
 
 ## Onglets à lire par situation
 
@@ -21,7 +23,9 @@ Sommaire : Ouvrir et modifier · Onglets à lire par situation · Qui écrit quo
 | Check, imprévu, bilan express | Repères, Plan, Notes (+ Athlète si douleur ou antécédent utile) |
 | Bilan du dimanche, fin de bloc | Tous sauf Archives |
 | Course à J-7, bilan de course | Objectifs, Repères, Plan |
-| Question libre | Selon le sujet ; aucun si la question est générale |
+| Question libre | Plan (imprévus ouverts) si la réponse touche ses séances, plus selon le sujet ; aucun si la question est générale |
+
+Dans Plan, lis toujours en premier « Imprévus ouverts » et « Dernière séance analysée ».
 
 Archives ne se relit que sur demande de l'athlète ou pour comparer avec un bloc passé précis.
 
@@ -29,16 +33,16 @@ Archives ne se relit que sur demande de l'athlète ou pour comparer avec un bloc
 
 | Onglet | Contenu | Écrit par |
 |---|---|---|
-| Athlète | Fiche, antécédents, consentements, contraintes et préférences, état du démarrage | Coach ; l'athlète peut modifier contraintes et préférences |
-| Objectifs | Objectifs A/B/C, verdicts, profil de course de chaque A et B | Coach |
+| Athlète | Fiche, niveaux de preuve, antécédents, consentements, contraintes et préférences, état du démarrage | Coach ; l'athlète peut modifier contraintes, préférences et consentements |
+| Objectifs | Objectifs A/B/C, chronos (ou « sans chrono »), verdicts, profil de course de chaque A et B | Coach |
 | Repères | Allures, puissances, bandes FC, plage personnelle de récupération | Coach |
-| Plan | Plan macro, bloc en cours, journal des décisions du bloc | Coach |
+| Plan | Imprévus ouverts, dernière séance analysée, plan macro, bloc en cours, suivi hebdomadaire, journal des décisions | Coach |
 | Notes | Notes libres | Athlète seulement (le coach lit, n'écrit pas) |
 | Archives | Blocs terminés (détail et journal) | Coach, par déplacement |
 
 ## Création (démarrage, étape 1)
 
-Crée le Doc « Carnet — <prénom> » avec les 6 onglets ci-dessous, tableaux vides. Donne le lien à l'athlète et demande-lui de le coller dans l'instruction de son projet (modèle : `kit/instruction-projet.md` du dépôt). Rien n'est prérempli : chaque onglet se remplit à son étape.
+Seulement quand il n'y a pas encore de carnet (aucun lien claude.ai, ou texte d'attente). Crée le Doc « Carnet — <prénom> » avec les 6 onglets ci-dessous, tableaux vides. Donne le lien à l'athlète et demande-lui de remplacer, dans l'instruction de son projet, la ligne « Mon carnet : pas encore créé… » par ce lien. Rien n'est prérempli, ni depuis la mémoire de Claude ni depuis une autre conversation : chaque onglet se remplit à son étape.
 
 ## Modèle des onglets
 
@@ -57,19 +61,26 @@ Crée le Doc « Carnet — <prénom> » avec les 6 onglets ci-dessous, tableaux 
 | Références (courses, records) | |
 | Matériel | ceinture cardio, capteur de puissance, salle ou haltères |
 
-## Antécédents
+## Niveaux de preuve (expliqués au démarrage)
+Chaque conseil s'appuie sur une règle plus ou moins prouvée, dite en mots : « solide (plusieurs études) » (A), « assez solide (une étude) » (B), « peu étudié » (C), « habitude de coach, non prouvée » (D).
+« Choix de prudence » : appliqué par sécurité, même sans preuve forte (garde-fou de prudence, S).
+Demande « pourquoi ? » pour avoir l'étude derrière un conseil.
+
+## Antécédents (demandés une fois)
 | Question | Réponse |
 |---|---|
 | Blessure de course < 12 mois | |
 | Fracture de fatigue passée | |
-| Signes de déficit énergétique | |
+| Fatigue persistante | |
+| Perte de poids non voulue | |
+| Blessures osseuses répétées | |
 
-## Consentements
-| Donnée | Accord | Date |
-|---|---|---|
-| Cycle menstruel | oui / non | |
-| Poids | oui / non | |
-| Grossesse | oui / non | |
+## Consentements (bloc 🔒 ; « OK » = accord pour toutes les données listées ; sans réponse, rien n'est lu)
+| Donnée | Accord | Date | Retrait le |
+|---|---|---|---|
+| Cycle menstruel | oui / non / sans objet | | |
+| Grossesse | oui / non / sans objet | | |
+| Poids | oui / non | | |
 
 ## Contraintes
 | Contrainte | Détail |
@@ -91,9 +102,11 @@ Crée le Doc « Carnet — <prénom> » avec les 6 onglets ci-dessous, tableaux 
 
 ```
 ## Objectifs
-| Priorité | Objectif | Date | Chrono visé | Verdict |
+| Priorité | Objectif | Date | Chrono visé (ou « sans chrono ») | Verdict |
 |---|---|---|---|---|
 | A | | | | |
+
+Verdict du calendrier entier : …
 
 ## Profil de course — <objectif>
 | Champ | Valeur |
@@ -144,6 +157,13 @@ Autres : sudation (L/h), tolérance digestive.
 ### Onglet « Plan »
 
 ```
+## Imprévus ouverts (relus avant toute séance proposée)
+| Depuis | Imprévu | Feu ou symptômes | Conduite en cours | Clôture quand |
+|---|---|---|---|---|
+| | | | | |
+
+Dernière séance analysée : <date> (check, bilan ou bilan de course ; le check suivant n'analyse que les séances clés postérieures)
+
 ## Plan macro
 | Bloc | Semaines | Phase | Qualité principale | Volume/sem. |
 |---|---|---|---|---|
@@ -164,6 +184,8 @@ Qualité principale : … · Qualité d'entretien : …
 ## Journal des décisions du bloc
 | Date | Décision | Raison |
 |---|---|---|
+
+Y figurent aussi : les imprévus ouverts et clos (avec leur date de clôture), et chaque « choix de l'athlète contre l'avis du coach » (le choix, le coût redit, la raison de l'athlète).
 ```
 
 ### Onglet « Notes »

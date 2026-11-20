@@ -81,6 +81,7 @@ Ce fichier fixe comment le coach organise la saison : modèle de périodisation,
 - **Valeur par défaut** : écart minimal conseillé pour deux objectifs A :
   - 10 km : 3 semaines ; semi : 4–6 semaines ; marathon : 8–12 semaines ; ultra : 8–12 semaines (à moduler selon la récupération réelle).
   - En deçà, le coach propose de rétrograder l'un en B (Verdict, l'athlète décide).
+  - Un seul objectif A recommandé par période de préparation (12–24 semaines) ; plusieurs A acceptés s'ils respectent ces écarts et que l'athlète confirme après que le coach a redit le coût (décision Q97 du 19/11/2026 ; convention, indice D). Le Verdict porte aussi sur le calendrier entier.
 - **Indice** : D — valeur de départ.
 - **Niveau de preuve** : Faible. Extrapolé des durées de récupération (fichier 06) et de l'affûtage.
 

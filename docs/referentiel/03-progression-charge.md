@@ -111,6 +111,7 @@ Ce fichier fixe comment le coach fait monter la charge d'entraînement (volume, 
   - Arrêt de 1–2 semaines : reprise à 70–80 % du volume précédent.
   - Arrêt de 3–4 semaines : reprise à 50 %.
   - Arrêt de plus de 4 semaines : reprise à 30–50 %, sans intensité pendant 1–2 semaines.
+  - **Après la reprise qui suit une course** (décision Q93 du 18/11/2026) : le premier bloc repart à **70–80 % du volume habituel d'avant la course** ; ensuite, le garde-fou des 30 % cumulés sur 2 semaines (règle 2) s'applique normalement, contrôlé depuis la semaine réellement précédente, reprise comprise. Raison : le garde-fou vient d'une étude sur des débutants (Nielsen 2014), mais rien ne prouve qu'un coureur entraîné puisse s'en passer en revenant vers un volume déjà toléré.
 - **Indice** : D — garde-fou de prudence, non prouvé.
 - **Niveau de preuve** : Faible. Ce sont des conventions de pratique, sans étude vérifiée.
 
@@ -127,6 +128,26 @@ Ce fichier fixe comment le coach fait monter la charge d'entraînement (volume, 
   - Spiering et al., 2021, *J Strength Cond Res*, doi:10.1519/JSC.0000000000003964
   - Hickson et al., 1985, *J Appl Physiol*, doi:10.1152/jappl.1985.58.2.492
   - Mujika & Padilla, 2000, *Sports Med*, doi:10.2165/00007256-200030020-00002 et doi:10.2165/00007256-200030030-00001
+
+**10. Progression du débutant : course-marche et plancher de 30 minutes** (décision Q98 du 19/11/2026)
+- **Règle** : chez le débutant, la séance se construit en **course-marche**, et la règle 1 (1,10 ×) s'applique à la **séance entière** (durée ou distance, marche comprise), jamais au bloc couru en continu. En dessous de **30 min de séance**, le plafond 1,10 × ne s'applique pas.
+- **Valeur par défaut** :
+  - Démarrage d'emblée à 20–30 min de course-marche (ex. 5' marche, 3 × (6' course / 2' marche), 5' marche pour un débutant qui tient 12 min) ; durée totale + 5 min par semaine jusqu'à 30 min, puis règle 1.
+  - Temps couru dans la séance : + 10 à 15 % par semaine ; garde-fou de la règle 2 (≤ 30 % cumulés sur 2 semaines) appliqué à ce temps couru.
+  - Bloc continu : s'allonge librement dans la séance en échange de la marche ; éviter de le doubler d'une séance à l'autre.
+  - Fréquence : 3 séances par semaine par défaut ; 2 acceptées, avec une progression annoncée plus lente.
+- **Indice** : B (1,10 × mesuré sur la séance entière, Frandsen 2025 ; + 10 % de temps couru ni plus ni moins sûr qu'une progression rapide, Buist 2008) — règle ; D (plancher de 30 min, + 5 min/semaine, ratios course/marche, 3 séances/semaine) — valeur de départ ; C (éviter de doubler le bloc continu : signal d'abandon, Relph 2023 ; garde-fou des 30 % sur le temps couru, Nielsen 2014) — garde-fou de prudence, non prouvé.
+- **Niveau de preuve** :
+  - Frandsen 2025 : 5 205 coureurs, expérience médiane 9,5 ans ; distance de la séance entière, séances < 500 m exclues ; aucune donnée sur les séances très courtes ni sur la dose absolue.
+  - Buist 2008 (GRONORUN, 532 débutants, course-marche dès la 1re séance) : 20,8 % contre 20,3 % de blessures entre progression à + 10 %/semaine et programme rapide.
+  - Aucun essai ne montre que la course-marche fait mieux que la course continue chez le débutant ; c'est une structure bien tolérée. Aucune étude ne compare 2 et 3 séances par semaine.
+  - Abandon : 30 % des débutants arrêtent dans les 6 mois, la blessure explique 48 % des arrêts (Fokkema 2019) ; abandons de Couch-to-5K concentrés sur le grand saut du bloc continu (Relph 2023).
+- **Sources** :
+  - Frandsen et al., 2025, *Br J Sports Med* 59:1203–1210, doi:10.1136/bjsports-2024-109380
+  - Buist et al., 2008, *Am J Sports Med* 36:33–39, doi:10.1177/0363546507307505
+  - Nielsen et al., 2014, *J Orthop Sports Phys Ther* 44:739–747, doi:10.2519/jospt.2014.5164
+  - Relph et al., 2023, *Int J Environ Res Public Health* 20:6682, doi:10.3390/ijerph20176682
+  - Fokkema et al., 2019, *J Sci Med Sport* 22:32–36, doi:10.1016/j.jsams.2018.06.003
 
 ## Valeurs par défaut par niveau (synthèse)
 
@@ -161,3 +182,4 @@ Ce fichier fixe comment le coach fait monter la charge d'entraînement (volume, 
 | Fréquence des semaines allégées | Toutes les 3–4 semaines, −20 à −40 % ; 3 + 1 pour tous, 2 + 1 sur critère observé (17/11) |
 | Progression du dénivelé en trail | ≈ +10–15 % de D+ hebdomadaire, **provisoire, sans preuve** (indice D — valeur de départ) |
 | Temps disponible réduit (Imprévu) | Dose minimale : intensité gardée, ≥ 2 séances/semaine, volume −1/3 à −2/3, renfo 1 séance (B) (17/11) |
+| Progression du débutant | Course-marche ; 1,10 × sur la séance entière, sans plafond sous 30 min ; temps couru + 10–15 %/sem. (règle 10, 19/11) |

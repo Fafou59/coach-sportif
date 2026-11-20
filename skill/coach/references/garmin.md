@@ -2,12 +2,12 @@
 
 Connecteur : missingmcp, qui fait tourner garmin_mcp sans modification (commit `a2ca5fc`, validé le 17/11/2026). Si un outil cité ici manque ou a changé de nom, dis-le et passe en mode dégradé (séances en texte). Repères de l'athlète (allures, FTP, bandes FC) : onglet Repères du carnet. Bornes des bandes FC et zones Coggan : référentiel 02 (règle 7, tableau B).
 
-Sommaire : Déroulé de création · Modifier, déplacer, supprimer · Nom des séances · Cibles · Gabarits `upload_workout` · Lectures utiles · Parcours et PacePro · Zones FC du compte · Exemples.
+Sommaire : Déroulé de création · Modifier, déplacer, supprimer · Ménage de la bibliothèque · Nom des séances · Cibles · Gabarits `upload_workout` · Lectures utiles · Parcours et PacePro · Zones FC du compte · Exemples.
 
 ## Déroulé de création
 
 1. **Tableau de la semaine** en format B (jour, nom de séance) ; séance principale marquée ★.
-2. **« GO »** explicite de l'athlète sur ce tableau.
+2. Bloc ✅ **GO requis** en fin de message (format B) ; seul le mot « GO » de l'athlète valide.
 3. **Créer** chaque séance avec `upload_workout` (renfo simple : `create_strength_workout`).
 4. **Planifier** à sa date : `schedule_workout(workout_id, date)`, ou `schedule_week([{date, workout_id}])` qui renvoie aussi les ID d'entrées de calendrier.
 5. **Relire** chaque séance avec `get_workout_by_id(id, raw=true)` : nom, sport, nombre de répétitions, cibles ; surtout l'unité `percent` des % FTP et l'ordre des bornes d'allure.
@@ -20,7 +20,14 @@ N'utilise pas `push_workout_to_device` : le calendrier se synchronise seul, et c
 - **Déplacer** une séance de date : `reschedule_workout(scheduled_workout_id, date)`. L'ID d'entrée de calendrier se lit avec `get_scheduled_workouts` (champ `scheduled_workout_id`, différent de l'ID de séance). Pas de suppression.
 - **Modifier** (contenu, durée, cible) : aucun outil ne modifie une séance. Supprime puis recrée, après une liste précise (séance retirée → séance qui la remplace) et un nouveau GO qui couvre les deux.
 - **Supprimer** : `delete_workouts(ids)` d'abord avec `confirm=false` (aperçu), puis `confirm=true` après GO. C'est définitif.
-- **Nettoyer la bibliothèque** (bilan du dimanche) : liste les séances de la semaine écoulée, GO, puis suppression. Les activités réalisées restent.
+
+### Ménage de la bibliothèque (bilan du dimanche)
+
+Supprimer une séance de la bibliothèque retire probablement aussi toutes ses entrées passées du calendrier (une séance supprimée disparaît de toutes ses dates). D'où, dans l'ordre :
+1. Le ménage vient **après** la comparaison prévu / fait du temps 1 ; le détail de la semaine est déjà dans le carnet.
+2. Candidates : les séances planifiées de la semaine écoulée, chacune **identifiée par son ID de séance** (`get_scheduled_workouts`), jamais par son nom : deux séances peuvent porter le même nom.
+3. Garde seulement celles qui n'ont **aucune occurrence future** au calendrier (même ID planifié aujourd'hui ou plus tard) ; une séance encore planifiée plus tard reste.
+4. Tableau (séance, dernière date, « future : non ») dans le bloc ✅ GO requis du temps 2, puis `delete_workouts(ids)` aperçu (`confirm=false`) et confirmation (`confirm=true`). Les activités réalisées restent.
 
 ## Nom des séances
 
@@ -44,8 +51,8 @@ Format : `<sport> | <type> <durée> [contenu]` (256 caractères au plus, sinon G
 
 | Séance | Cible | Encodage |
 |---|---|---|
-| EF, sortie longue course | Bande FC Facile en bpm, plafond individualisé | ID 4 `heart.rate.zone`, `targetValueOne`/`Two` en bpm, **sans** `zoneNumber` |
-| Fractionné sur le plat | Allure nommée ± 5 s/km (indice D, convention) | ID 6 `pace.zone`, bornes en **m/s** |
+| EF, sortie longue course | **Une seule cible** : bande FC Facile en bpm, plafond individualisé (une plage plus étroite observée dans les données est une observation, jamais une seconde cible) | ID 4 `heart.rate.zone`, `targetValueOne`/`Two` en bpm, **sans** `zoneNumber` |
+| Fractionné sur le plat | Allure nommée ± 5 s/km (habitude de coach, non prouvée) | ID 6 `pace.zone`, bornes en **m/s** |
 | Côtes, trail | Bande FC Seuil ou Au-dessus, ou pas de cible + effort perçu en description | ID 4 en bpm, ou ID 1 |
 | Récupérations | Aucune | ID 1 `no.target` |
 | Vélo avec capteur | % FTP (zones Coggan) | ID 2 `power.zone` + `targetValueUnit: {"unitKey": "percent"}` |
@@ -133,7 +140,7 @@ Codes : `stepTypeId` 1 échauffement, 2 retour au calme, 3 intervalle, 4 récup�
 | Records | `get_personal_record` | Démarrage |
 | Puissance-durée | `get_power_duration_curve` | Estimation de FTP |
 
-Contexte seulement, jamais décisionnels : Body Battery, Training Readiness, statut VFC Garmin, VO2max et prédictions de course Garmin. `get_training_load_trend` contient un ratio aigu/chronique que le référentiel n'utilise pas (fichier 03, règle 3).
+Indicateurs propriétaires (Training Effect, charge Garmin, Body Battery, Training Readiness, statut VFC, VO2max, prédictions de course) : hors des messages sauf demande (SKILL.md). `get_training_load_trend` contient un ratio aigu/chronique que le référentiel n'utilise pas (fichier 03, règle 3).
 
 ## Parcours et PacePro
 
@@ -161,19 +168,21 @@ Optionnel, après GO seulement, un sport à la fois : `set_heart_rate_zones(spor
 >
 > **Verdict :** 4 séances, dans le budget (1 séance dure).
 >
-> > **À toi :** GO pour créer ces 4 séances dans Garmin ?
+> ---
+> ✅ **GO requis** — création et planification de ces 4 séances dans Garmin — Réponds « GO » pour valider.
 
 **Avant suppression :**
 
 > ### Séances à supprimer de la bibliothèque
-> | Date | Séance |
-> |---|---|
-> | 18/11 | `R \| EF 45'` |
-> | 20/11 | `R \| Frac. 50' 6×3' @VMA r:2' ★` |
+> | Séance | Dernière date | Future ? |
+> |---|---|---|
+> | `R \| EF 45'` | 18/11 | non |
+> | `R \| Frac. 50' 6×3' @VMA r:2' ★` | 20/11 | non |
 >
-> **Verdict :** semaine écoulée ; tes activités réalisées restent.
+> **Verdict :** semaine écoulée, déjà comparée au réalisé et notée dans ton carnet ; tes activités réalisées restent.
 >
-> > **À toi :** GO pour supprimer ces 2 séances ?
+> ---
+> ✅ **GO requis** — suppression de ces 2 séances de la bibliothèque (leurs entrées passées du calendrier disparaîtront aussi) — Réponds « GO » pour valider.
 
 **Après création :**
 

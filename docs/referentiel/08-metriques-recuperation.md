@@ -169,6 +169,15 @@ Ce fichier fixe comment le coach lit la VFC nocturne, la FC de repos et le somme
   - Dupuy et al., 2018, *Front Physiol*, doi:10.3389/fphys.2018.00403
   - Brown et al., 2017, *Sports Med*, doi:10.1007/s40279-017-0728-9
 
+**13. Ressenti de l'athlète : questions courtes, sans redemander ce que la montre mesure**
+- **Règle** : suivre la réponse à l'entraînement aussi par quelques questions de ressenti (forme, jambes et courbatures, stress, motivation), sur une échelle courte où 5 = au mieux ; ne jamais demander ce que la montre mesure déjà (durée de sommeil, FC de repos, VFC, effort perçu saisi). Sans plage personnelle (moins de 28 jours de données ou montre sans ces mesures), le ressenti devient l'indicateur principal de récupération.
+- **Valeur par défaut** : questions du bilan du dimanche et du check décidées le 17/11/2026 (Q85–Q88, Q96).
+- **Indice** : B (les mesures de ressenti suivent la charge plus finement et plus régulièrement que les mesures objectives courantes, revue systématique de 56 études) — règle ; D (choix des items, échelle 1–5) — valeur de départ.
+- **Niveau de preuve** : Moyen. Saw, Main & Gastin (2016) : mesures subjectives et objectives concordent rarement ; le ressenti se dégrade avec une hausse aiguë de charge et s'améliore avec un allègement. Les mesures objectives réagissent plus lentement, ce qui explique en partie l'écart. Format proche de l'indice de Hooper (Hooper et al., 1995 : sommeil, fatigue, stress, courbatures).
+- **Sources** :
+  - Saw, Main & Gastin, 2016, *Br J Sports Med* 50:281–291, doi:10.1136/bjsports-2015-094758
+  - Hooper et al., 1995, *Med Sci Sports Exerc* 27:106–112
+
 ## Ce qui ne fait pas consensus
 
 - **Largeur de la plage** : 0,5 SD ou 1 SD, RMSSD brut ou logarithmique. Les essais diffèrent.
@@ -194,3 +203,4 @@ Ce fichier fixe comment le coach lit la VFC nocturne, la FC de repos et le somme
 | Orientation RED-S | 1 signal fort ou 2 signaux secondaires → médecin |
 | Fer | Fatigue inexpliquée ou profil à risque → suggérer d'en parler au médecin (dosage de ferritine) ; ni examen ni complément prescrits (17/11) |
 | Options sur demande | Sommeil allongé avant course (C) ; décalage horaire (C) ; massage et compression pour le confort (A–B) (17/11) |
+| Ressenti de l'athlète | Questions courtes 5 = au mieux ; indicateur principal sans plage personnelle (règle 13, 20/11) |
