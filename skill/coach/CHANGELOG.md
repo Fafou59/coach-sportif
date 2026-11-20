@@ -1,5 +1,14 @@
 # Journal des versions du skill `coach`
 
+## v0.3 (20/11/2026) — corrections de la répétition ciblée
+
+- #27.1 Renfo : créneau à la carte compté comme jour dur dès la semaine-type ; renfo jambes le lendemain d'un jour dur ou le même jour après lui ; contrôle jour par jour écrit dans le message (démarrage étape 5, bilan temps 2 à l'ouverture de l'à la carte, bilan express) ; aucun garde-fou affiché comme respecté sans comparaison.
+- #27.2 Sortie longue : § Calcul de la sortie longue (départ = plus longue sortie des 30 j, hausses, semaines allégées, plafond) refait à l'identique aux étapes 4, 6, 7 et écrit au Plan ; toute valeur validée modifiée passe par une correction ❓.
+- #27.3 Repères : source précise et confiance pour chaque allure, puissance, FC, dans le message et l'onglet Repères (cascade 02.9) ; départ des valeurs déjà au carnet, changement expliqué.
+- #27.4 Séance Garmin non créée par le coach ni notée au carnet : décrite, sans origine ni date de création supposées.
+- #27.5 Exemples : avertissement « chiffres inventés » au-dessus des exemples ; plafonds FC des exemples (151, 152, 153 bpm) remplacés par l'onglet Repères.
+- #28 Référentiel appliqué à la lettre : problème dit en une ligne, ❓ à l'athlète, question notée pour qui tient le référentiel ; Q99 (cumul des 30 % après une semaine allégée, d'affûtage ou de récupération mesuré depuis la dernière semaine pleine d'avant) ; course A ou B au-delà de 1,10 × signalée comme pic et mise au choix de l'athlète.
+
 ## v0.2 (19/11/2026) — corrections de la répétition à blanc
 
 - #17 Carnet : « pas encore de carnet » = aucun lien ou texte d'attente → créé au démarrage, étape 1 ; jamais de second carnet quand un lien valide existe ; instructions du kit sans texte entre chevrons.
@@ -12,3 +21,6 @@
 - #24 Challenge : coût redit une fois, « Tu maintiens ? », choix noté au journal ; un seul A recommandé par période de préparation ; verdict sur le calendrier entier ; pas de re-challenge sans fait nouveau (Q97).
 - #25 Démarrage : rien depuis la mémoire de Claude ; aucun détail d'outil dans les messages ; antécédents en une liste ❓ oui/non, une seule relance ; détail adapté au niveau ; préférence contre une règle solide challengée ; progression débutant en course-marche (03, règle 10, Q98).
 - #26 Imprévus (critique) : 48 h après maladie = séances dures seulement, EF après test de reprise réussi ; imprévu écrit au carnet dans le message même (« Imprévus ouverts », bloc en cours, journal) et relu avant toute séance proposée.
+- Garde-fou des 30 % : une semaine allégée prévue au plan n'est jamais la référence (Q100, Q102) ; imprévu ou reprise après une course A : règle 8.
+- Course plus longue que la préparation (Q101) : pic expliqué une fois pour un objectif A ; signalé à chaque fois pour une course B ou C.
+- Contrôle du renfo refait chaque fois que la semaine-type est montrée ou modifiée, question libre comprise (vérification courte du 20/11 : renfo du mercredi resté la veille de la séance à la carte du jeudi).

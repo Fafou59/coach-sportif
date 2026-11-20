@@ -24,7 +24,7 @@ Traite les cas dans cet ordre ; plusieurs peuvent se cumuler dans un même messa
 
 ### Séance clé
 Tout fractionné (tempo et seuil compris), toute sortie longue, tout test, toute course, **postérieure à la dernière séance analysée**. Une séance déjà commentée (check, bilan, bilan de course) ne se réanalyse pas.
-- Analyse : allures ou puissance des répétitions face à la cible, régularité, dérive de FC, durée réelle face à la prévue, effort perçu (/10).
+- Analyse : allures ou puissance des répétitions face à la cible (onglet Repères), régularité, dérive de FC, durée réelle face à la prévue, effort perçu (/10).
 - Verdict bref : ce qui a marché, ce qui est à surveiller. Le plan ne change que si la séance révèle un vrai problème.
 - Toujours **2 questions** : `❓ **Q1 – Séance**` (comment s'est-elle passée ?) et `❓ **Q2 – Jambes**` (1 = lourdes · 5 = fraîches).
 - Coup de mou signalé : vérifie d'abord les glucides avant et pendant (référentiel 09, règle 10) avant d'évoquer la fatigue.
@@ -83,12 +83,14 @@ Proposé au premier check qui suit un dimanche sans bilan. Deux messages. Relis 
 **Message 2**, après la réponse :
 - douleur signalée ou imprévu ouvert : feu tricolore et conduite de l'imprévu d'abord ;
 - séance à la carte : si l'athlète y a droit (référentiel 01, règle 8), **recommande une option** d'après sa réponse et les données Garmin ; sinon, « pas encore disponible » en une ligne ;
-- place la séance principale en premier ; s'il ne reste pas assez de jours pour tenir 48 h entre elle et l'à la carte, limite l'à la carte à Aucune ou Légère ; dérive en cours : Aucune ou Légère seulement ;
+- place la séance principale en premier ; s'il ne reste pas assez de jours pour tenir 48 h entre elle et l'à la carte, limite l'à la carte à Aucune ou Légère ; dérive en cours : Aucune ou Légère seulement ; Moyenne ou Soutenue : pas de renfo jambes la veille (contrôle jour par jour de bilan.md, temps 2) ;
 - tableau des séances restantes jusqu'à dimanche, plus le lundi d'après ;
 - l'athlète répond **en une fois** : option + « GO ».
 Puis création selon garmin.md. Le ménage de la bibliothèque attend le prochain bilan du dimanche. Note « bilan express du <date> » dans le journal du Plan et mets à jour la dernière séance analysée.
 
 ## Exemples (format B, données fictives)
+
+Chiffres inventés pour montrer la forme ; les plafonds, plages et cibles réels viennent de l'onglet Repères du carnet, les mesures de Garmin.
 
 **RAS**
 
@@ -101,7 +103,7 @@ Puis création selon garmin.md. Le ménage de la bibliothèque attend le prochai
 >
 > **Verdict :** RAS.
 > ### Demain
-> `R | EF 45'` — bande Facile (FC < 153).
+> `R | EF 45'` — bande Facile (FC sous ton plafond Facile de l'onglet Repères).
 
 **Séance clé**
 
@@ -124,7 +126,7 @@ Puis création selon garmin.md. Le ménage de la bibliothèque attend le prochai
 > ### EF de jeudi : FC inhabituelle
 > | | Habituel | Jeudi |
 > |---|---|---|
-> | FC moyenne | 138 | 151 |
+> | FC moyenne en EF | ta moyenne habituelle | +13 bpm |
 > | Durée | 45' | 28' (arrêt) |
 >
 > **Verdict :** à comprendre avant la prochaine séance dure.

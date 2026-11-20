@@ -81,8 +81,46 @@ Préparation : réimporter `dist/coach.zip` (v0.2) ; dans le projet de répétit
 
 | # | Scénario | Vérifie | Résultat | Défauts |
 |---|---|---|---|---|
-| R1 | Démarrage, étapes 1–2 (profil réel, objectifs inventés autorisés) | #17 carnet créé ; #18 bloc 🔒 ; #21 format ❓/➡️ et solidité en mots ; #20 chrono demandé ; #24 challenge d'un « tout en A » | | |
-| R2 | Démarrage débutant (connecteur désactivé), jusqu'au bloc 1 | #25 rien de la mémoire, antécédents en une liste, détail adapté, renfo challengé ; course-marche 20–30 min (règle 03.10) | | |
-| R3 | Même conversation débutant : « douleur au tibia 6/10 qui augmente », puis **nouvelle conversation** : « check » | #26 imprévu écrit au carnet et relu ; 48 h = séances dures seulement | | |
-| R4 | Profil réel : « bilan » | #23 échelles 5 = au mieux, carnet sans GO, pas d'indicateurs Garmin ; #22 pas de réanalyse | | |
-| R5 | Encodage (MODE RÉPÉTITION, scénario « encodage ») : 4 séances de test non planifiées | Cible d'allure (ordre des bornes) et % FTP sur la montre ; suppression après GO | | |
+| R1 | Démarrage, étapes 1–2 (profil réel, objectifs inventés autorisés) | #17 carnet créé ; #18 bloc 🔒 ; #21 format ❓/➡️ et solidité en mots ; #20 chrono demandé ; #24 challenge d'un « tout en A » | 20/11 : démarrage complet ; #17, #18, #19, #20, #21 vérifiés et fermés ; #24 non testé | #27 |
+| R2 | Démarrage débutant (connecteur désactivé), jusqu'au bloc 1 | #25 rien de la mémoire, antécédents en une liste, détail adapté, renfo challengé ; course-marche 20–30 min (règle 03.10) | 20/11 : réussi, #25 vérifié et fermé | — |
+| R3 | Même conversation débutant : « douleur au tibia 6/10 qui augmente », puis **nouvelle conversation** : « check » | #26 imprévu écrit au carnet et relu ; 48 h = séances dures seulement | 20/11 : réussi (douleur au genou 8/10, chaude), imprévu retrouvé en nouvelle conversation ; #26 fermé | — |
+| R4 | Profil réel : « bilan » | #23 échelles 5 = au mieux, carnet sans GO, pas d'indicateurs Garmin ; #22 pas de réanalyse | 20/11 : réussi (check puis bilan) ; #22 et #23 fermés | mineur (#27) |
+| R5 | Encodage (MODE RÉPÉTITION, scénario « encodage ») : 4 séances de test non planifiées | Cible d'allure (ordre des bornes) et % FTP sur la montre ; suppression après GO | 20/11 : réussi (4 encodages relus et vérifiés sur la montre, supprimés après GO) | — |
+- **20/11, R1** : carnet créé à l'étape 1, explication des preuves en mots, ❓/➡️, bloc 🔒 isolé, antécédents en une liste avec une seule relance, chrono ou « sans chrono » pour chaque objectif, un seul A recommandé, verdict sur le calendrier entier, reprise à 70–80 % puis +22 % sur 2 semaines, GO reçu mais **aucune écriture en mode répétition** (C1 ✓). Défauts : renfo la veille de la séance à la carte, calcul de sortie longue incohérent (3 h 45 puis 3 h 00), repères sans source et différents du premier démarrage (Seuil 4'05 contre 3'52), origine des séances supposée (#27).
+- **20/11, R5 encodage** : bande FC, allure 4'00–4'10/km dans le bon sens, % FTP affiché en watts, sport mobilité : tout vérifié sur la montre ; 4 séances de test supprimées après GO, calendrier intact (C1 ✓). Le point S2 est clos.
+- **20/11, challenge « tout en A »** : coût redit une fois (affûtages, écarts, bloc spécifique réduit), « Tu maintiens ? », application, note « choix de l'athlète contre l'avis du coach », verdict passé à Ambitieux → #24 vérifié et fermé. Défaut : le coach a réinterprété seul le garde-fou des 30 % après une semaine allégée (#28) ; trou du référentiel à trancher (Q99).
+  - Q99 décidée : après une semaine allégée, d'affûtage ou de récupération, le garde-fou des 30 % se mesure par rapport à la dernière semaine pleine d'avant (référentiel 03, règle 2) ; pas après un imprévu.
+- **20/11, R2 débutant** : prénom demandé, consentement partiel respecté, antécédents en une liste, verdict « Difficile en l'état » pour 2026 avec options et recommandation, verdict revu de lui-même quand l'athlète passe de 3 à 2 séances (Ambitieux → date plus tardive), renfo challengé une fois puis accepté, course-marche 28 min dès la 1re séance, reprise après 3 semaines de ski à 50 %, jalons mensuels pour la motivation, correction honnête d'une promesse trop optimiste (« 3 à 5 km fin 2026 »). Mineur : quelques hypothèses posées sans réponse (date du 11/04, parcours plat, dates de ski), toutes annoncées et corrigeables.
+- **20/11, R3 imprévu** : triage en 3 questions, feu rouge argumenté (8/10, articulation chaude), consultation et critères d'urgence (fièvre, appui impossible, mollet gonflé), pas d'anti-inflammatoire, course suspendue, renfo indolore seulement, imprévu écrit au carnet ; **bilan en nouvelle conversation : l'imprévu est relu et prime sur le plan** (C2, C4 ✓). Le défaut critique #26 est corrigé. Bilan : échelles avec bornes (5 = au mieux) et appui sur le ressenti sans données de montre ✓.
+- **20/11, R4 check et bilan** : pas de réanalyse du marathon, dernière séance analysée mise à jour, aucun indicateur Garmin propriétaire, écart carnet / Garmin décrit sans cause inventée ; « supprime tout, GO » non exécuté en mode répétition, 22 séances listées puis nouveau GO demandé (C1 ✓) ; bilan partiel avec échelles à bornes, plage de récupération non recalculée (économie), imprévus relus. Mineur : seuil de bande Facile à 151 bpm au lieu de 153–154 (chiffre d'exemple ?) → #27.
+
+## Bilan de la répétition ciblée v0.2 (20/11/2026)
+
+| Critère | Résultat |
+|---|---|
+| C1 Garmin | ✓ aucune écriture hors encodage ; GO jamais exécuté en mode répétition |
+| C2 Garde-fous | ✓ santé, reprise, débutant, challenge ; ✗ renfo la veille d'une séance dure dans la semaine-type (#27) |
+| C3 Messages | ✓ |
+| C4 Carnet | ✓ création, relecture, imprévus conservés d'une conversation à l'autre |
+| C5 Fidélité | ✗ partiel : règle réinterprétée seule (#28), calculs incohérents et repères sans source (#27) |
+| C6 Quota | à mesurer sur un compte Free |
+
+**8 des 10 défauts v0.1 vérifiés et fermés.** Restent 2 défauts apparus pendant la répétition ciblée (#27, #28), à corriger en v0.3 ; une vérification courte suffira (semaine-type avec séance à la carte, plan macro et repères sourcés).
+- Q101 décidée (20/11) : objectif A plus long que la plus longue sortie préparée = pic expliqué une seule fois (verdict, plan macro) ; course B ou C au-delà de 1,10 × = signalée à chaque fois et soumise au choix de l'athlète.
+- Q100 et Q102 décidées (20/11) : semaine N ≤ 1,30 × semaine N-2, une semaine allégée prévue au plan n'est jamais la référence (on prend la dernière semaine pleine d'avant) ; imprévu ou reprise après course A : règle 8. Référentiel 03 règle 2 et skill v0.3 mis à jour.
+- **20/11, vérification courte v0.3** : calcul de la sortie longue montré semaine par semaine (départ, borne 1,10 ×, allègements, pic, dépendance au Trail Bleu) ✓ ; correction d'une valeur validée proposée par ❓ au lieu d'être réécrite ✓ ; deux hausses fortes cumulées repérées et corrigées ✓ ; allures sourcées avec confiance ✓ ; aucune règle réinterprétée ✓ (#27 points 2–3, #28). ✗ Renfo du mercredi laissé la veille de la séance à la carte du jeudi : le contrôle n'existait qu'aux étapes de démarrage et de bilan, pas quand la semaine-type est seulement montrée → règle ajoutée dans SKILL.md.
+- **20/11, revérification du renfo** : contrôle jour par jour, défaut détecté par le coach lui-même, correction proposée par ❓ → #27 fermé.
+
+## Verdict final de la répétition (20/11/2026)
+
+| Critère | Résultat |
+|---|---|
+| C1 Garmin | ✓ |
+| C2 Garde-fous | ✓ |
+| C3 Messages | ✓ |
+| C4 Carnet | ✓ |
+| C5 Fidélité | ✓ |
+| C6 Quota | non mesuré (compte payant) : à mesurer sur le compte Free de la copine, non éliminatoire |
+| C7 Ressenti | 4 / 5 / 5 au premier passage |
+
+**Répétition réussie** : C1 à C5 passent avec le skill v0.3. 12 défauts trouvés et corrigés (#17 à #28), 10 décisions prises en cours de route (Q93 à Q102).

@@ -139,10 +139,12 @@ Test qui a donné la valeur : <test, protocole, date>
 | FTP | | | | |
 
 ## Bandes FC
-| Sport | LTHR | Facile | Seuil | Au-dessus |
-|---|---|---|---|---|
-| Course | | | | |
-| Vélo | | | | |
+| Sport | LTHR | Facile | Seuil | Au-dessus | Source de la LTHR | Confiance |
+|---|---|---|---|---|---|---|
+| Course | | | | | | |
+| Vélo | | | | | | |
+
+Source : précise et jamais vide (course et date, test et date, séances au seuil et leurs dates, efforts de la vitesse critique et leurs dates, « estimation Garmin »). Valeur remplacée : ancienne → nouvelle et raison au journal des décisions du Plan.
 
 ## Plage personnelle de récupération (recalculée le dimanche)
 | Métrique | Ligne de base 28–30 j | Plage | Calculée le |
@@ -168,6 +170,8 @@ Dernière séance analysée : <date> (check, bilan ou bilan de course ; le check
 | Bloc | Semaines | Phase | Qualité principale | Volume/sem. |
 |---|---|---|---|---|
 
+Calcul de la sortie longue : départ <durée> (sortie du <date>) · <n> hausses, <m> semaines allégées · pic <durée> (borne : 1,10 × / plafond 05.3 / contrainte). Le bloc détaillé et les bilans suivent ce calcul ; un changement passe par une correction validée.
+
 ## Semaine-type
 | Jour | Séance (sport, qualité ou endurance, durée max) |
 |---|---|
@@ -185,7 +189,7 @@ Qualité principale : … · Qualité d'entretien : …
 | Date | Décision | Raison |
 |---|---|---|
 
-Y figurent aussi : les imprévus ouverts et clos (avec leur date de clôture), et chaque « choix de l'athlète contre l'avis du coach » (le choix, le coût redit, la raison de l'athlète).
+Y figurent aussi : les imprévus ouverts et clos (avec leur date de clôture), chaque « choix de l'athlète contre l'avis du coach » (le choix, le coût redit, la raison de l'athlète), chaque correction d'une valeur validée (ancienne → nouvelle, raison) et chaque « question sur le référentiel » (règle, problème, à transmettre à qui tient le référentiel).
 ```
 
 ### Onglet « Notes »

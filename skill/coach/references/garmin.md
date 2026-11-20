@@ -73,7 +73,9 @@ Pièges :
 
 Codes : `stepTypeId` 1 échauffement, 2 retour au calme, 3 intervalle, 4 récupération, 5 repos, 6 répétition. `conditionTypeId` 1 bouton tour, 2 temps (s), 3 distance (m), 7 itérations, 10 répétitions (renfo). Sports : 1 course, 2 vélo, 5 renfo, 6 cardio, 11 mobilité. `stepOrder` est un compteur unique en profondeur : un bloc répété prend le numéro suivant et ses étapes continuent (bloc 2, enfants 3 et 4, retour au calme 5).
 
-**EF course, bande Facile** (plafond 152 bpm, exemple) :
+Les valeurs de cible des gabarits sont des emplacements ou des exemples de calcul : chaque cible réelle (plafond Facile, allure, % FTP) vient de l'onglet Repères du carnet.
+
+**EF course, bande Facile** (`<plancher>` ≈ 60 % de la LTHR course, `<plafond>` = plafond Facile de l'onglet Repères, en bpm) :
 
 ```json
 {"workoutName": "R | EF 45'", "description": "Endurance fondamentale. Tu dois pouvoir parler.",
@@ -83,10 +85,10 @@ Codes : `stepTypeId` 1 échauffement, 2 retour au calme, 3 intervalle, 4 récup�
    "stepType": {"stepTypeId": 3, "stepTypeKey": "interval"},
    "endCondition": {"conditionTypeId": 2, "conditionTypeKey": "time"}, "endConditionValue": 2700,
    "targetType": {"workoutTargetTypeId": 4, "workoutTargetTypeKey": "heart.rate.zone"},
-   "targetValueOne": 100, "targetValueTwo": 152}]}]}
+   "targetValueOne": <plancher>, "targetValueTwo": <plafond>}]}]}
 ```
 
-**Fractionné à l'allure** (5 × 5' @Seuil haut 4'12 ± 5 s/km → 3,891–4,049 m/s, récupération 2') :
+**Fractionné à l'allure** (exemple de calcul : 5 × 5' @Seuil haut, ici 4'12 ± 5 s/km → 3,891–4,049 m/s, récupération 2') :
 
 ```json
 {"workoutName": "R | Frac. 55' 5×5' @Seuil haut r:2' ★",
@@ -155,6 +157,8 @@ Optionnel, après GO seulement, un sport à la fois : `set_heart_rate_zones(spor
 - Lis d'abord `get_heart_rate_zones(sport)`, puis relis le résultat renvoyé. Aucun effet sur les activités passées.
 
 ## Exemples de messages (format B)
+
+Chiffres inventés pour montrer la forme ; les vrais viennent du carnet (onglet Repères) et de Garmin.
 
 **Avant création :**
 

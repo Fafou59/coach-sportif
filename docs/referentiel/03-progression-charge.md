@@ -26,6 +26,7 @@ Ce fichier fixe comment le coach fait monter la charge d'entraînement (volume, 
 - **Valeur par défaut** :
   - Repère de hausse : 5–10 % par semaine ; au-delà des repères par niveau (ci-dessous), le coach le signale au bilan et ajuste d'après ce qu'il observe.
   - Garde-fou : jamais plus de 30 % cumulés sur 2 semaines.
+  - Lecture du garde-fou : semaine N ≤ 1,30 × semaine N-2 ; une semaine allégée, d'affûtage ou de récupération **prévue au plan** (y compris la récupération après une course B ou C) ne sert jamais de référence : on la remplace par la dernière semaine pleine d'avant elle (Q100, Q102 ; habitude de coach, non prouvée). Une semaine réduite par un imprévu, ou la reprise après une course A, relève de la règle 8 (décisions Q99, Q100, Q102 des 20/11/2026 ; convention, indice D : aucune étude sur le retour après allègement, Nielsen 2014 portait sur des débutants sans semaine allégée).
 - **Indice** : D (repères 10 / 15 / 20 %, Buist : sans effet) — indicateur ; C (cumul ≤ 30 % sur 2 semaines, Nielsen ; Frandsen ne trouve pas de lien avec le ratio hebdomadaire) — garde-fou de prudence, non prouvé.
 - **Niveau de preuve** : Faible à Moyen.
   - Buist et al. (2008, essai randomisé) : un programme progressif selon la règle des 10 % n'a pas réduit les blessures (20,8 % contre 20,3 %).
@@ -183,3 +184,4 @@ Ce fichier fixe comment le coach fait monter la charge d'entraînement (volume, 
 | Progression du dénivelé en trail | ≈ +10–15 % de D+ hebdomadaire, **provisoire, sans preuve** (indice D — valeur de départ) |
 | Temps disponible réduit (Imprévu) | Dose minimale : intensité gardée, ≥ 2 séances/semaine, volume −1/3 à −2/3, renfo 1 séance (B) (17/11) |
 | Progression du débutant | Course-marche ; 1,10 × sur la séance entière, sans plafond sous 30 min ; temps couru + 10–15 %/sem. (règle 10, 19/11) |
+| Garde-fou des 30 % après une semaine allégée | Semaine N ≤ 1,30 × semaine N-2 ; une semaine allégée prévue au plan n'est jamais la référence (dernière semaine pleine d'avant) ; imprévu ou reprise après course A : règle 8 (20/11) |
