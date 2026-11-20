@@ -116,7 +116,7 @@ Séance qui n'est pas une séance clé mais dont les données sortent de l'ordin
 ### Suivi
 
 **Check** :
-Rituel court lancé par l'athlète : le coach lit les données récentes et ne développe que s'il y a une séance clé à analyser, une séance anormale ou une métrique en dérive ; sinon il répond « RAS ».
+Rituel court lancé par l'athlète : le coach lit les données récentes et ne développe que s'il y a une séance clé à analyser, une séance anormale ou une métrique en dérive ; sinon il répond « RAS ». « check » est le seul mot que l'athlète retient : selon le jour et le carnet, le coach en fait un check, le bilan du dimanche ou un bilan express (Q105).
 _À éviter_ : suivi quotidien, point du jour
 
 **Bilan du dimanche** :

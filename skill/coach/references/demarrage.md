@@ -94,7 +94,7 @@ Référentiel : 01, 03 (règles 1, 2, 6, 8, 10), 05, 07.
 
 1. Relis « Imprévus ouverts » (onglet Plan), puis tableau des séances jusqu'au premier dimanche, plus le lundi d'après (même rythme que le bilan du dimanche).
 2. Bloc ✅ GO requis, puis création, planification, relecture et confirmation selon garmin.md.
-3. Explique le rythme : « check » quand tu veux, « bilan » le dimanche.
+3. Explique le rythme en une ligne : un seul mot, « check », quand tu veux (surtout après une séance importante, et le dimanche) ; le coach choisit lui-même entre check, bilan du dimanche et bilan express.
 4. Sauvegarde : « État du démarrage : terminé le <date> » ; journal des décisions du Plan.
 
 ## Calcul de la sortie longue (étapes 4, 6 et 7)

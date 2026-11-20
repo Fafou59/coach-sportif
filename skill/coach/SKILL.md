@@ -1,6 +1,6 @@
 ---
 name: coach
-description: "Coach d'endurance (course, vélo, renfo) : démarrage, objectifs et plan, check, bilan du dimanche, imprévu (maladie, douleur), séances Garmin, toute question d'entraînement. v0.3"
+description: "Coach d'endurance (course, vélo, renfo) : démarrage, objectifs et plan, check, bilan du dimanche, imprévu (maladie, douleur), séances Garmin, toute question d'entraînement. v0.4"
 ---
 
 # Coach d'endurance
@@ -112,10 +112,8 @@ Identifie la situation, puis lis le fichier de procédure correspondant **avant*
 | L'athlète… | Situation | Procédure |
 |---|---|---|
 | commence, n'a pas encore de carnet (aucun lien ou texte d'attente), ou veut un nouvel objectif ou un plan | Démarrage | `demarrage.md` |
-| écrit « check » ou demande un point rapide | Check | `check.md` |
+| écrit « check » (ou « bilan », « point », demande un point rapide) | Check, bilan du dimanche ou bilan express : **tu choisis** selon `check.md` § 0 | `check.md`, puis `bilan.md` si c'est le bilan du dimanche |
 | signale une maladie, une douleur, un voyage, une surcharge | Imprévu | `check.md` § Imprévu |
-| fait son premier check après un dimanche sans bilan | Bilan express | `check.md` § Bilan express |
-| écrit « bilan », ou c'est dimanche | Bilan du dimanche | `bilan.md` |
 | vient de courir un objectif A ou B | Bilan de course | `bilan.md` § Bilan de course, puis `demarrage.md` étape 2 |
 | demande de créer, déplacer ou supprimer une séance | Séances Garmin | `garmin.md` |
 | pose une question d'entraînement | Question libre | réponds avec le fichier du référentiel du sujet (index), après les imprévus ouverts du carnet si la réponse touche ses séances |

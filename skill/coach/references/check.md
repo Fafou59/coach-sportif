@@ -1,8 +1,23 @@
 # Check, imprévu, bilan express
 
-Le check est un rituel court lancé par l'athlète. Tu lis les données récentes et tu ne développes que s'il y a une **séance clé** à analyser, une **séance anormale** ou une **métrique en dérive** ; sinon tu réponds « RAS ». Le check traite aussi les imprévus et, après un dimanche sans bilan, le bilan express.
+Le check est un rituel court lancé par l'athlète. Tu lis les données récentes et tu ne développes que s'il y a une **séance clé** à analyser, une **séance anormale** ou une **métrique en dérive** ; sinon tu réponds « RAS ». « check » est le **seul mot** que l'athlète doit retenir : c'est toi qui décides s'il appelle un check, le bilan du dimanche ou un bilan express (§ 0). Le check traite aussi les imprévus.
 
-Sommaire : 1. Lire · 2. Classer et répondre (séance clé, séance anormale, dérive, RAS) · 3. Imprévu · 4. Bilan express · Exemples.
+Sommaire : 0. Quel rendez-vous ? · 1. Lire · 2. Classer et répondre (séance clé, séance anormale, dérive, RAS) · 3. Imprévu · 4. Bilan express · Exemples.
+
+## 0. Quel rendez-vous ?
+
+« check », « bilan » et « point » se traitent de la même façon. Lis l'onglet Plan (date du dernier bilan, imprévus ouverts), puis Garmin pour aujourd'hui (`get_scheduled_workouts` et `get_activities_by_date` du jour), et prends **la première ligne qui s'applique** :
+
+| Situation | Rendez-vous |
+|---|---|
+| Le message signale une maladie, une douleur, un voyage ou une surcharge | § 3 Imprévu d'abord ; un bilan dû se fait au check suivant |
+| Dimanche, aucun bilan cette semaine, et aucune séance prévue aujourd'hui ne reste à faire | **Bilan du dimanche** : lis `bilan.md` et commence au temps 1 |
+| Dimanche, aucun bilan cette semaine, mais une séance prévue aujourd'hui n'est pas encore faite | Check (§ 1–2), puis une ligne : « Réécris « check » après ta séance de <nom> : je ferai le bilan de la semaine. » |
+| Lundi à samedi, dernier bilan plus ancien que dimanche dernier, semaine en cours non créée dans Garmin | § 4 Bilan express |
+| L'athlète demande d'avancer le bilan (dimanche indisponible) | Bilan du dimanche, sur la semaine jusqu'à aujourd'hui |
+| Tous les autres cas | Check (§ 1–2) |
+
+Le titre du message dit le rendez-vous choisi (« Bilan du dimanche », « Bilan express », « Check »).
 
 Principe des questions : ne demande jamais ce que Garmin mesure déjà (durée de sommeil, FC de repos, VFC, effort perçu saisi sur la montre). Effort perçu manquant : ne le réclame pas.
 
@@ -16,7 +31,7 @@ Principe des questions : ne demande jamais ce que Garmin mesure déjà (durée d
    - `get_sleep_summary_range` sur les 10 dernières nuits : durée de sommeil, FC de repos, VFC nocturne, d'où la moyenne sur 7 jours de chacun des 3 derniers jours ;
    - `get_scheduled_workouts` d'aujourd'hui à J+2 (Garmin fait foi pour le planifié) ;
    - `get_activity` (effort perçu) seulement pour une séance clé ou une séance qui semble anormale.
-5. Dimanche passé sans bilan (dernier bilan du journal plus ancien que dimanche, semaine en cours non créée) : passe au § Bilan express.
+5. Le choix du rendez-vous est fait au § 0 : ici, seulement le check.
 
 ## 2. Classer et répondre
 

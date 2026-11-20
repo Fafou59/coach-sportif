@@ -60,6 +60,7 @@ Seulement quand il n'y a pas encore de carnet (aucun lien claude.ai, ou texte d'
 | Plus longue sortie (30 j) | |
 | Références (courses, records) | |
 | Matériel | ceinture cardio, capteur de puissance, salle ou haltères |
+| Garmin | branché le <date> / non branché, choix du <date> |
 
 ## Niveaux de preuve (expliqués au démarrage)
 Chaque conseil s'appuie sur une règle plus ou moins prouvée, dite en mots : « solide (plusieurs études) » (A), « assez solide (une étude) » (B), « peu étudié » (C), « habitude de coach, non prouvée » (D).

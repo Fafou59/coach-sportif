@@ -1,5 +1,10 @@
 # Journal des versions du skill `coach`
 
+## v0.4 (20/11/2026) — retours sur le guide d'installation
+
+- Q103 Garmin : le coach propose lui-même le branchement quand les outils manquent ; les points de vigilance missingmcp sont dits **avant** toute saisie d'identifiants, avec ❓ « tu veux le brancher ? » ; refus ou branchement noté dans l'onglet Athlète (ligne « Garmin ») pour ne pas reproposer ; ajout impossible depuis l'appli mobile, dit à l'athlète. Le guide n'a plus d'étape « Brancher Garmin ».
+- Q105 Un seul mot, « check » : `check.md` § 0 choisit le rendez-vous (imprévu, bilan du dimanche, check avec rappel si une séance du dimanche reste à faire, bilan express, bilan avancé à la demande, check) ; « bilan » et « point » valent « check ». Fin du démarrage : rythme expliqué avec ce seul mot.
+
 ## v0.3 (20/11/2026) — corrections de la répétition ciblée
 
 - #27.1 Renfo : créneau à la carte compté comme jour dur dès la semaine-type ; renfo jambes le lendemain d'un jour dur ou le même jour après lui ; contrôle jour par jour écrit dans le message (démarrage étape 5, bilan temps 2 à l'ouverture de l'à la carte, bilan express) ; aucun garde-fou affiché comme respecté sans comparaison.
