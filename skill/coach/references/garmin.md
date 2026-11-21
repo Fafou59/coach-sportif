@@ -6,12 +6,13 @@ Sommaire : Déroulé de création · Modifier, déplacer, supprimer · Ménage d
 
 ## Déroulé de création
 
-1. **Tableau de la semaine** en format B (jour, nom de séance) ; séance principale marquée ★.
+1. **Tableau de la semaine** en format B (jour, nom de séance) ; séance principale marquée ★. Avant lui, lis le calendrier avec `get_scheduled_workouts` **depuis aujourd'hui** jusqu'à la fin de la période : chaque séance déjà prévue ce jour-là ou après, quelle que soit son origine, figure dans le tableau (garder, retirer ou remplacer).
 2. Bloc ✅ **GO requis** en fin de message (format B) ; seul le mot « GO » de l'athlète valide.
 3. **Créer** chaque séance avec `upload_workout` (renfo simple : `create_strength_workout`).
 4. **Planifier** à sa date : `schedule_workout(workout_id, date)`, ou `schedule_week([{date, workout_id}])` qui renvoie aussi les ID d'entrées de calendrier.
 5. **Relire** chaque séance avec `get_workout_by_id(id, raw=true)` : nom, sport, nombre de répétitions, cibles ; surtout l'unité `percent` des % FTP et l'ordre des bornes d'allure.
 6. **Confirmer** à l'athlète : tableau de ce qui est créé, et toute anomalie corrigée ou restante.
+7. **Carnet** dans le même message : relis `get_scheduled_workouts` sur la période, puis écris au Plan (bloc en cours et journal) les séances créées, retirées et restantes, telles que le calendrier les montre.
 
 N'utilise pas `push_workout_to_device` : le calendrier se synchronise seul, et chaque appel ajoute une copie sur la montre.
 

@@ -26,7 +26,7 @@ Référentiel : 06 (règle 7), 00 (doctrine).
 
 Référentiel : 04 (règles 5, 6, 8).
 1. Objectifs : course, chrono, ou habitude ; date, distance. Lis `get_calendar_events` pour retrouver les courses déjà inscrites.
-2. **Chrono** : pour **chaque** objectif A et B, demande le chrono visé ou « sans chrono » (finir, plaisir). Tu peux aider à le fixer. Le verdict de l'étape 4 attend cette réponse.
+2. **Chrono** : pour **chaque** objectif A et B, demande le chrono visé ou « sans chrono » (finir, plaisir). Sans chrono en tête, **propose spontanément** une fourchette estimée, avec son calcul (meilleure donnée récente, ajustement au parcours) et sa confiance ; l'athlète la prend comme cible, la garde à titre indicatif, ou reste « sans chrono ». Elle se recale à chaque fin de bloc (bilan.md). Le verdict de l'étape 4 attend cette réponse.
 3. **Classement** A (principal), B, C, proposé par toi avec ta raison : **un seul A** recommandé par période de préparation (12–24 semaines ; habitude de coach, non prouvée). Plusieurs A : vérifie l'écart minimal entre chaque paire (04, règle 6) ; écart trop court, ou classement contraire à ta recommandation : challenge une fois (SKILL.md), l'athlète tranche, et le choix maintenu va au journal.
 4. Pour chaque objectif A et B, recueille le **profil de course**, dans cet ordre de préférence :
    1. parcours déjà dans Garmin Connect (`get_courses`, `get_course_details`) ;
@@ -46,7 +46,8 @@ Référentiel : 04 (règles 5, 6, 8).
 
 Référentiel : 04 (règles 6, 7), 03 (règles 1, 8, 10), 02 (règles 3 à 9), 05 (règle 3), 08 (règles 1 et 9).
 1. **Repères**, avant le verdict. Tous vont au carnet ; le message montre ceux qui servent au niveau de l'athlète (débutant : allure facile au test de la parole et durée des séances).
-   - **Allures** par la cascade du référentiel 02 (règle 9) : course sur route plate de moins de 8 semaines (12 si l'entraînement a continué) ; sinon vitesse critique depuis les données d'entraînement ; sinon estimation de confiance faible. Garde-fou : pas de test maximal moins de 3–4 semaines après un marathon, pendant un retour de blessure, ou avant 3 mois de pratique. **Estime toujours** les 5 allures de séance (EF, Seuil, Seuil haut, VMA, allure objectif ; pas d'allure objectif en trail) avec leur confiance.
+   - **Allures** par la cascade du référentiel 02 (règle 9) : course sur route plate de moins de 8 semaines (12 si l'entraînement a continué) ; sinon vitesse critique depuis les données d'entraînement ; sinon estimation de confiance faible. Garde-fou : pas de **test** maximal moins de 3–4 semaines après un marathon, pendant un retour de blessure, ou avant 3 mois de pratique ; avec des données récentes, les allures se calculent sans baisse (02, règle 9). **Estime toujours** les 5 allures de séance (EF, Seuil, Seuil haut, VMA, allure objectif ; pas d'allure objectif en trail) avec leur confiance.
+   - **Contrôle de cohérence** (02, règle 9), écrit dans le message sous le tableau des allures, une ligne par allure face à la donnée réelle : ex. « Seuil 3:59–4:09, plus rapide que ton marathon (4:25) ✅ ». Un ✗ se corrige ou s'explique avant de poser la question. Une VMA donnée par l'athlète se note « déclarée, sans test » avec sa confiance (02, règle 4).
    - **Source de chaque repère**, dans le message et au carnet (SKILL.md, Repères et calculs) : la marche de la cascade retenue et la donnée exacte (« 10 km du <date> en <chrono> », « VC sur 3 efforts : <durée> le <date>, … », « séances au seuil du <date> et du <date> », « estimation Garmin du seuil »). Onglet Repères déjà rempli (relance après un bilan de course, nouveau démarrage) : pars de ses valeurs et explique chaque écart (ancienne → nouvelle, donnée nouvelle) ; mêmes données, mêmes repères.
    - **Tests** : propose tous ceux adaptés au niveau, avec fiabilité et contraintes (tableau du référentiel 02, règle 4) ; l'athlète choisit d'en faire un ou non. Le test choisi se place en semaine d'allègement du bloc 1 ; le carnet note le test et son protocole.
    - **Vélo** : FTP depuis la courbe puissance-durée (`get_power_duration_curve`, effort de 20 min de moins de 6 semaines × 0,95), sinon test proposé.
@@ -72,15 +73,16 @@ Référentiel : 01 (règles 3, 4, 8), 07 (règles 3, 6, 9), 04 (règle 8), 03 (r
 
 ## Étape 6/8 : plan macro
 
-Référentiel : 04 (règles 1 à 5, 7), 03 (règles 5, 8, 10), 05.
+Référentiel : 04 (règles 1 à 5, 7, 8), 03 (règles 5, 8, 10), 05, 01 (règle 8).
 1. 12–24 semaines jusqu'à l'objectif A (jusqu'à 1 an avec une phase de base allongée).
 2. Phase de base (qualités fondamentales : volume facile qui progresse et n'est jamais réduit au profit de la vitesse, force, lignes droites), phase spécifique, affûtage selon la distance.
-3. Blocs de 3 + 1 semaines (2 + 1 sur critère observé). Pour chaque bloc : phase, qualité principale, volume par semaine. Objectifs B et C placés comme séances dures, avec mini-affûtage pour un B.
-4. **Après une course récente** : reprise selon 06 (règle 1), puis premier bloc à **70–80 % du volume habituel d'avant la course** (03, règle 8 ; habitude de coach, non prouvée — choix de prudence) ; ensuite, garde-fou des 30 % cumulés sur 2 semaines.
-5. **Débutant** : progression en course-marche (03, règle 10) : séance de 20–30 min au départ (ex. 5' marche, 3 × (6' course / 2' marche), 5' marche), durée totale + 5 min par semaine jusqu'à 30 min, puis 1,10 × sur la séance entière, marche comprise ; temps couru + 10–15 % par semaine. Sous 30 min de séance, pas de plafond 1,10 ×.
-6. **Sortie longue** : refais le § Calcul de la sortie longue avec les blocs réels du plan (hausses semaine par semaine, semaines allégées) et montre-le. Même départ et mêmes règles qu'à l'étape 4 : le pic tombe au même chiffre ; s'il change (blocs différents, contrainte nouvelle), c'est une correction (SKILL.md, Repères et calculs). Courses A ou B au-delà de 1,10 × : point 5 du calcul.
-7. Présente le plan, explique les choix clés et les risques en quelques lignes, puis demande la validation.
-8. Sauvegarde : Plan (plan macro, ligne du calcul de sortie longue), « État du démarrage : 7/8 ».
+3. Blocs de 3 + 1 semaines (2 + 1 sur critère observé). Pour chaque bloc : phase, qualité principale, qualité d'entretien, volume par semaine. Objectifs B et C placés comme séances dures, avec mini-affûtage pour un B.
+4. **Qualités des blocs : tu les proposes, l'athlète choisit.** Pars du contenu de chaque phase selon le niveau (04, règle 1 ; confirmé en base : VMA ou endurance de vitesse selon l'objectif, vitesse courte, force) et du profil de course (04, règle 8). Pose-les en question avant le tableau du plan : `❓ **Qn – Qualités des blocs** : bloc 1 <principale> + <entretien> · bloc 2 … — ou <alternative>` avec ta recommandation. Principale et à la carte travaillent deux qualités différentes (01, règle 8, Q129).
+5. **Après une course récente** : reprise selon 06 (règle 1), puis premier bloc à **70–80 % du volume habituel d'avant la course** (03, règle 8 ; habitude de coach, non prouvée — choix de prudence) ; ensuite, garde-fou des 30 % cumulés sur 2 semaines.
+6. **Débutant** : progression en course-marche (03, règle 10) : séance de 20–30 min au départ (ex. 5' marche, 3 × (6' course / 2' marche), 5' marche), durée totale + 5 min par semaine jusqu'à 30 min, puis 1,10 × sur la séance entière, marche comprise ; temps couru + 10–15 % par semaine. Sous 30 min de séance, pas de plafond 1,10 ×.
+7. **Sortie longue** : refais le § Calcul de la sortie longue avec les blocs réels du plan (hausses semaine par semaine, semaines allégées) et montre-le. Même départ et mêmes règles qu'à l'étape 4 : le pic tombe au même chiffre ; s'il change (blocs différents, contrainte nouvelle), c'est une correction (SKILL.md, Repères et calculs). Courses A ou B au-delà de 1,10 × : point 5 du calcul.
+8. Présente le plan, explique les choix clés et les risques en quelques lignes, puis demande la validation.
+9. Sauvegarde : Plan (plan macro, ligne du calcul de sortie longue), « État du démarrage : 7/8 ».
 
 ## Étape 7/8 : bloc 1 détaillé
 
@@ -88,14 +90,19 @@ Référentiel : 01, 03 (règles 1, 2, 6, 8, 10), 05, 07.
 1. Détaille le bloc 1 séance par séance, au format des noms Garmin (garmin.md), qualité principale et d'entretien.
 2. Vérifie les garde-fous du temps 2 du bilan (bilan.md, tableau et contrôle jour par jour) sur chaque semaine, **en partant de la semaine réellement précédente** (dernière semaine faite, reprise comprise) : hausse et cumul sur 2 semaines se calculent depuis elle, pas depuis la semaine 1 du bloc ; cumul des 30 % : semaine N ≤ 1,30 × semaine N-2 ; une semaine allégée, d'affûtage ou de récupération **prévue au plan** (y compris la récupération après une course B ou C) ne sert jamais de référence : on la remplace par la dernière semaine pleine d'avant elle (Q100, Q102 ; habitude de coach, non prouvée). Une semaine réduite par un imprévu, ou la reprise après une course A, relève de la règle 8 (03, règle 2). 1,10 × se cite juste : chaque sortie face à la plus longue des 30 derniers jours, jamais face à la sortie de la semaine d'avant.
 3. Sorties longues du bloc = celles du calcul écrit au Plan macro à l'étape 6. Un écart avec ce calcul est une correction : ❓ avec la raison, avant d'écrire.
-4. Validation de l'athlète. Sauvegarde : Plan (bloc en cours), « État du démarrage : 8/8 ».
+4. **Contrôles écrits dans le message**, semaine par semaine, chacun ✅ ou corrigé avant la question :
+   - **une seule hausse forte** par semaine (03, règle 6 ; 05, règle 1) : retour de l'intensité, séance dure ajoutée, sortie longue au-delà de +10 %, hausse de D+ ; ex. « sem. 2 : retour de l'intensité, sortie longue 50' → 54' (+8 %) ✅ » ;
+   - **qualités** : chaque principale porte la qualité principale du bloc validée à l'étape 6, l'à la carte une autre qualité (01, règle 8).
+5. **Après une course récente**, la sortie longue et les EF de la reprise sont des choix (SKILL.md, Repères et calculs) : propose-les en ❓, dans le contrôle de la hausse forte.
+6. Validation de l'athlète. Sauvegarde : Plan (bloc en cours), « État du démarrage : 8/8 ».
 
 ## Étape 8/8 : « GO » et première semaine dans Garmin
 
 1. Relis « Imprévus ouverts » (onglet Plan), puis tableau des séances jusqu'au premier dimanche, plus le lundi d'après (même rythme que le bilan du dimanche).
 2. Bloc ✅ GO requis, puis création, planification, relecture et confirmation selon garmin.md.
 3. Explique le rythme en une ligne : un seul mot, « check », quand tu veux (surtout après une séance importante, et le dimanche) ; le coach choisit lui-même entre check, bilan du dimanche et bilan express.
-4. Sauvegarde : « État du démarrage : terminé le <date> » ; journal des décisions du Plan.
+4. **Relecture du carnet** avant de conclure : aucun texte d'attente, aucune valeur « proposée » remplacée depuis (SKILL.md, Carnet), séances du Plan identiques au calendrier relu.
+5. Sauvegarde : « État du démarrage : terminé le <date> » ; journal des décisions du Plan.
 
 ## Calcul de la sortie longue (étapes 4, 6 et 7)
 

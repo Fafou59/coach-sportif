@@ -111,12 +111,14 @@ Ce fichier fixe comment le coach définit les zones d'intensité de chaque athl�
 **9. Construction du tableau d'allures au démarrage (cascade)**
 - **Règle** (validée le 16/11/2026) : suivre la cascade ci-dessous. **Quel que soit le résultat, le coach estime toujours les allures**, en indiquant son degré de confiance (élevé, moyen, faible), et **propose tous les tests adaptés** à l'athlète pour affiner, avec leur fiabilité et leur accessibilité (tableau des tests de la règle 4). L'athlète choisit de faire un test ou non.
 - **Valeur par défaut** :
-  - **Garde-fou** : pas de test maximal moins de 3–4 semaines après un marathon, pendant un retour de blessure, ou chez un débutant de moins de 3 mois de pratique ; partir alors des repères précédents baissés de 5–10 %.
+  - **Garde-fou** : pas de test maximal moins de 3–4 semaines après un marathon, pendant un retour de blessure, ou chez un débutant de moins de 3 mois de pratique. Il interdit le **test**, il ne baisse pas les allures : avec des données récentes (course, séances), la cascade ci-dessous s'applique telle quelle. La baisse de 5–10 % des repères précédents vaut seulement **sans donnée récente** : retour de blessure, ou coupure de plus de 3 semaines (règle 10) (décision Q126 du 21/11/2026).
   1. Course sur route plate de moins de 8 semaines (12 si l'entraînement a continué normalement). Avec 2 courses ou plus, exposant de Riegel propre à l'athlète et CS. Riegel prédit un marathon trop rapide d'au moins 10 min pour la moitié des coureurs : ne pas extrapoler le marathon depuis une course courte sans correction.
   2. Sinon, CS depuis les données d'entraînement (règle 3).
   3. Sinon, estimation de faible confiance (historique, test de la parole, estimation Garmin en dernier recours) et test terrain proposé, placé en semaine d'allègement.
   - Limite haute de l'EF : vérifiée au test de la parole, quel que soit le niveau.
-- **Indice** : B (cascade course > CS > estimation ; pas de Riegel brut au marathon, Vickers) — règle ; D (récence de 8 ou 12 semaines) — valeur de départ ; D (pas de test maximal après un marathon, une blessure ou avant 3 mois de pratique) — garde-fou de prudence, non prouvé.
+  - **Contrôle de cohérence** avant de retenir les allures, face aux courses et séances récentes de l'athlète : EF plus lente que l'allure marathon ; Seuil plus rapide que l'allure marathon ; Seuil haut proche de l'allure 10 km ; VMA plus rapide que l'allure 5 km ; allures proches de celles des séances réellement tenues. Un écart se dit et s'explique (forme actuelle, course ancienne, chaleur), sinon le calcul est repris (décision Q126 du 21/11/2026).
+  - Les courses utilisées respectent la fenêtre de récence (8 ou 12 semaines) ; une course plus ancienne sert seulement au contrôle de cohérence, citée avec sa date.
+- **Indice** : B (cascade course > CS > estimation ; pas de Riegel brut au marathon, Vickers) — règle ; D (récence de 8 ou 12 semaines) — valeur de départ ; D (pas de test maximal après un marathon, une blessure ou avant 3 mois de pratique) — garde-fou de prudence, non prouvé ; D (contrôle de cohérence, Q126) — garde-fou de prudence, non prouvé.
 - **Niveau de preuve** : Moyen pour la hiérarchie des sources (voir `recherches/construction-tableau-allures.md`) ; Faible pour les fenêtres de 8 et 12 semaines (convention).
 
 **10. Recalibrage**

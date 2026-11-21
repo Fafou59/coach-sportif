@@ -1,5 +1,16 @@
 # Journal des versions du skill `coach`
 
+## v0.4.1 (21/11/2026) — correctif après le premier démarrage réel
+
+- #36 Allures : le garde-fou « pas de test maximal après un marathon » interdit le test, il ne baisse plus les allures quand des données récentes existent (référentiel 02, règle 9, Q126) ; contrôle de cohérence écrit sous le tableau des allures (EF, Seuil, Seuil haut, VMA face aux courses et séances réelles) ; courses hors fenêtre de récence seulement pour ce contrôle ; chaque allure reliée au nom que l'athlète emploie ; VMA déclarée notée « sans test ».
+- #37 Qualités des blocs proposées en question à l'étape 6, selon le contenu de phase par niveau (04, règle 1) ; principale et à la carte travaillent deux qualités différentes, sauf en affûtage (01, règle 8, Q129) ; contrôle à l'étape 7 et en fin de bloc.
+- #38 Mêmes données, mêmes chiffres : milieu de la fourchette par défaut ; toute autre valeur ou tout paramètre sans règle (sortie longue et EF de reprise) posé en question ; chiffre déjà au carnet recopié, jamais recalculé.
+- #39 Une seule hausse forte par semaine, contrôlée semaine par semaine dans le message (étape 7, fin de bloc).
+- #40 Calendrier Garmin lu depuis aujourd'hui avant toute création ; carnet mis à jour dans le même message, relu contre le calendrier.
+- #41 Une seule valeur par donnée au carnet ; textes d'attente remplis ou retirés ; relecture du carnet en fin de démarrage.
+- #42 Messages en français, sans note de travail ; un verdict dans chaque message, correction comprise.
+- Q131 Chrono : sans chrono en tête, le coach propose spontanément une fourchette estimée (étape 2) ; il la recalcule à chaque fin de bloc depuis les allures recalées, la cible ne change qu'avec l'accord de l'athlète.
+
 ## v0.4 (20/11/2026) — retours sur le guide d'installation
 
 - Q103 Garmin : le coach propose lui-même le branchement quand les outils manquent ; les points de vigilance missingmcp sont dits **avant** toute saisie d'identifiants, avec ❓ « tu veux le brancher ? » ; refus ou branchement noté dans l'onglet Athlète (ligne « Garmin ») pour ne pas reproposer ; ajout impossible depuis l'appli mobile, dit à l'athlète. Le guide n'a plus d'étape « Brancher Garmin ».
