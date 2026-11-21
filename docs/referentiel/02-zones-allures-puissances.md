@@ -130,7 +130,7 @@ Ce fichier fixe comment le coach définit les zones d'intensité de chaque athl�
     3. une CS recalculée sur au moins 3 efforts quasi maximaux de 3 à 20 min (règle 3) ;
     4. les séances au seuil (RPE, dérive de FC).
   - Aucun plafond de variation par bloc. L'ancien ajustement de ±1–2 % plafonné à ±3 % est retiré : c'était une convention proposée par une note de recherche, sans source, sous le bruit de mesure (erreur individuelle de la CS ≈ 8 %), et il gelait un débutant qui progresse vite.
-  - Après 2–3 blocs sans course ni test, proposer un test.
+  - Après 2–3 blocs sans course ni test, proposer un test. Toute course compte (B, C, parkrun), ainsi qu'un **test intégré** : la dernière répétition d'une séance courue quasi à fond, notée comme telle. Un refus se note au journal et n'est reproposé qu'à la fin de bloc suivante (décision Q133 du 21/11/2026).
   - Recalcul immédiat si :
     - un nouveau meilleur effort dépasse le repère actuel de plus de 3 % ;
     - les séances au seuil deviennent anormalement faciles ou difficiles, sur au moins 2 séances avec un écart de RPE d'au moins 2 points ;

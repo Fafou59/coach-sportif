@@ -9,6 +9,8 @@
 - #40 Calendrier Garmin lu depuis aujourd'hui avant toute création ; carnet mis à jour dans le même message, relu contre le calendrier.
 - #41 Une seule valeur par donnée au carnet ; textes d'attente remplis ou retirés ; relecture du carnet en fin de démarrage.
 - #42 Messages en français, sans note de travail ; un verdict dans chaque message, correction comprise.
+- Q133 Tests de recalage : toute course compte, ainsi qu'un test intégré (dernière répétition quasi à fond) ; un refus n'est reproposé qu'à la fin de bloc suivante (02, règle 10).
+- Q134 À la carte après une reprise de course : accès conservé si des séances dures étaient tolérées avant, seulement Aucune ou Légère pendant 2 semaines de retour de l'intensité (01, règle 8).
 - Q131 Chrono : sans chrono en tête, le coach propose spontanément une fourchette estimée (étape 2) ; il la recalcule à chaque fin de bloc depuis les allures recalées, la cible ne change qu'avec l'accord de l'athlète.
 
 ## v0.4 (20/11/2026) — retours sur le guide d'installation
